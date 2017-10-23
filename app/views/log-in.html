@@ -1,0 +1,89 @@
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+<link rel="stylesheet" href="/public/stylesheets/application.css" /> 
+<script type="text/javascript" src="/public/javascripts/application.js"></script>
+<script type="text/javascript" src="/public/javascripts/schema.js"></script>
+{% endblock %}
+{% block content %}
+<div class="row"> 
+	<div class="col-12">
+		
+		<h1 class="heading-large">Sign in</h1>
+		<form class="form">
+			<div class="form-group no-bottom">
+				<fieldset>
+					<legend class="visuallyhidden">Enter your User ID</legend>
+					<div class="form-group" id="quserId">
+						<label class="form-label-bold" for="userId">
+							User ID
+							<span class="form-hint">The email address for your account</span>
+							<span class="userId error-message">Provide your User ID</span>
+						</label>
+						<input class="form-control" id="userId" name="userId" type="text" value="">
+					</div>
+
+					<div class="form-group" id="qpWord">
+						<label class="form-label-bold" for="pWord">
+							Password
+							<span class="pWord error-message"><br>Provide a password</span>
+						</label>
+						<input class="form-control" id="pWord" type="password" name="pWord" value="">
+					</div>
+				</fieldset>
+				
+			</div><!--  end .form-group  -->
+			{% include 'includes/buttons/continue-validation.html' %}
+		</form>
+		
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+
+<script type="text/javascript">
+	$(".button").click(function(){
+		// Enter function name here
+		validate();
+	});
+
+	function validate() {
+		var validInput = true;
+
+		$('.userId.error-message').hide();
+		$('#quserId').removeClass('error');
+		$('.pWord.error-message').hide();
+		$('#qpWord').removeClass('error');
+
+		var userId = $('input[name=userId]').val();
+		if ((userId == '') || (userId == undefined)) {
+			$('#quserId').addClass('error');
+			$('.userId.error-message').show();
+			$('.error-summary').show();
+			$('body').scrollTop(0);
+			validInput = false;
+		} 
+
+		var pWord = $('input[name=pWord]').val();
+		if ((pWord == '') || (pWord == undefined)) {
+			$('#qpWord').addClass('error');
+			$('.pWord.error-message').show()
+			$('.error-summary').show();
+			$('body').scrollTop(0);
+			validInput = false;
+		}
+
+		if (validInput) {
+
+			if (userId.toLowerCase() == 'retailer'){
+				go('/rave/menu');
+			} else if (userId.toLowerCase() == 'manufacturer'){
+				go('/rave/menu-manufacturer');
+			} else { 
+				go('/rave/menu');
+			}
+		}
+	}
+
+</script>
+{% endblock %}
+
+
