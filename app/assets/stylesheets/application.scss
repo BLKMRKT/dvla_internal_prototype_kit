@@ -1,2 +1,20 @@
 @import 'dvla-internal-elements';
 
+.form-control {
+	height: 40px;
+	border: 2px solid $text-primary-colour;
+	width: 100%;
+}
+
+.form-control-2-4 {
+	width: 50%;
+}
+
+.visuallyHidden {
+	display: none;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
