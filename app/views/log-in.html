@@ -1,0 +1,84 @@
+{% extends 'layout-dialog.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block content %}
+<div class="row"> 
+	<div class="col-12">
+
+		<h1 class="heading-large">Sign in</h1>
+		<form class="form">
+			<div class="form-group no-bottom">
+
+				<fieldset>
+					<legend class="visuallyhidden">Enter your User ID</legend>
+
+					<!--	User ID	-->
+					<div class="form-group" id="quserID">
+						<label class="form-label" for="userID">User ID<br>
+							<span class="form-hint">The email address for your account</span>
+							<span class="userID error-message"><br>Provide your User ID</span>
+						</label>
+						<input class="form-control" id="userID" name="userID" type="text" value="">
+					</div>
+
+					<!--	Password	-->
+					<div class="form-group" id="qpassWord">
+						<label class="form-label" for="passWord">Password
+							<span class="passWord error-message"><br>Provide a password</span>
+						</label>
+						 
+					</div>
+				</fieldset>
+
+			</div><!--  end .form-group  -->
+			{% include 'includes/buttons/continue.html' %}
+		</form>
+
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+<script type="text/javascript">
+	$(".btn ").click(function(){
+		// Enter function name here
+		validate();
+	});
+
+	function validate() {
+		var validInput = true;
+		var userID = $('input[name=userID]').val();
+		var passWord = $('input[name=passWord]').val();
+
+		$('.userID.error-message').hide();
+		$('#quserID').removeClass('error');
+		$('.passWord.error-message').hide();
+		$('#qpassWord').removeClass('error');
+
+
+		if ((userID == '') || (userID == undefined)) {
+			$('#quserID').addClass('error');
+			$('.userID.error-message').show();
+			$('.error-summary').show();
+			$('body').scrollTop(0);
+			validInput = false;
+		} 
+
+
+		if ((passWord == '') || (passWord == undefined)) {
+			$('#qpassWord').addClass('error');
+			$('.passWord.error-message').show()
+			$('.error-summary').show();
+			$('body').scrollTop(0);
+			validInput = false;
+		}
+
+		if (validInput) {
+			go('/afrl-home');
+		} 
+	}
+
+
+</script>
+{% endblock %}
+
+

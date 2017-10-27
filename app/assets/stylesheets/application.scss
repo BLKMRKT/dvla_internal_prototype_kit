@@ -1,20 +1,93 @@
 @import 'dvla-internal-elements';
 
-.form-control {
-	height: 40px;
-	border: 2px solid $text-primary-colour;
-	width: 100%;
-}
-
-.form-control-2-4 {
-	width: 50%;
-}
-
 .visuallyHidden {
 	display: none;
 }
 
-fieldset {
-	border: none;
-	padding: 0;
+.heading-sml {
+font-size: 24px;
+}
+
+// Spacing 
+
+.margin-top-1 { margin-top: 1em; } 			/* 16px */
+.margin-top-2 { margin-top: 2em; }			/* 32px */
+.margin-top-3 { margin-top: 3em; } 			/* 48px */
+.margin-top-3-5 { margin-top: 3.5em; } 	/* 56px */
+.margin-top-4 { margin-top: 4em; } 			/* 64px */
+
+.margin-bottom-1 { margin-bottom: 1em; } 		/* 16px */
+.margin-bottom-2 { margin-bottom: 2em; }		/* 32px */
+.margin-bottom-3 { margin-bottom: 3em; }		/* 48px */
+.margin-bottom-4 { margin-bottom: 4em; }		/* 64px */
+
+.padding-bottom-4 { padding-bottom: 4em; }		/* 64px */
+// AFRL Homepage Search
+
+.search-container {
+	background-color: #f8f8f8;
+   border-bottom: 1px solid $grey-3;
+}
+
+.search-label {
+	font-size: 24px;
+	margin-bottom: -2px;
+}
+
+#search-prefix {
+	height: 48px !important;
+	border: 2px solid $grey-1;
+	border-radius: 0;
+	font-size: 16px;
+	border-radius: 3px 0px 0px 3px;
+	width: 25%;
+	margin-right:-7px;
+	background-color: #ffffff;
+}
+
+.search-box {
+	height: 48px !important;
+	border: 2px solid $grey-1;
+	border-right: none;
+	border-radius: 0;
+	font-size: 16px;
+	width: 67.3%;
+	padding-left: 13px !important;
+	position: relative;
+}
+
+.search-btn {
+	height: 48px;
+	width: 48px;
+	background-color: #097567;
+	border-style: none;
+	display: inline-block;
+	margin-left: -5px;
+	vertical-align: sub;
+	border-radius: 0px 3px 3px 0px;
+	
+	&::before{
+		font-family: $icon-font;
+		content: '\e908';
+		font-size: 24px;
+		margin-left: -2px;
+	}	
+}
+
+.border-bottom-grey {
+	padding-bottom: 8px;
+	margin-bottom: 28px;
+	border-bottom: 1px solid $grey-3;
+	width: 98%;
+}
+
+
+.afrl-btn {
+	padding: 17px 50px;
+	border-radius: 3px;
+	margin: 0px 3px 0px 0px;
+	&::last-child {
+		margin: 0px 3px 0px 3px;
+}
+
 }
