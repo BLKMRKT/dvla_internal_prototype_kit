@@ -1,27 +1,235 @@
 @import 'dvla-internal-elements';
+@import 'date-picker';
+
+
+
+#content {
+	min-height: 650px !important;
+}
+
+//.home-icon {
+//	&::before{
+//		font-family: $icon-font;
+//		content: '\e905';
+//		font-size: 24px;
+//		margin-left: -2px;
+//		display: inline-block;
+//	}	
+//}
+
+.tab-content {
+	margin-top: 24px;
+}
+
+
+.tableHead {
+	
+	th:nth-child(1){
+	width: 18%;
+	}
+	
+	th:nth-child(2){
+		width: 8%;
+	}
+	
+	th:nth-child(3){
+		width: 28%;	
+	}
+	
+	th:nth-child(4){
+		width: 10%;
+	}
+	
+	th:nth-child(5){
+		width: 8.5%;
+	}
+}
+
+.truncate {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	min-width:  50px;
+	max-width: 500px;
+	white-space: nowrap;
+}
 
 .visuallyHidden {
 	display: none;
 }
 
-.heading-sml {
-font-size: 24px;
+.page-context {
+	margin-bottom: 24px;
+	
+	h1 {
+		display:inline-block;
+		font-size: 36px;
+		margin-bottom: 0;
+		margin-left: -2px;
+		line-height: 35px;
+		
+	}
+}
+
+.actions {
+	float: right;
+	margin-top: 21px;
+	button {
+		margin-right: 3px;
+	}
+	
+	button:first-child {
+		margin-right: 4px
+	}
+	
+	button:last-child {
+		margin-right: 0px;
+	}
+}
+
+.manufacturer-icon {
+	display: inline-block;
+	vertical-align: middle;
+	
+	&::before{
+		font-family: $icon-font;
+		color: #ffffff;
+		content: '\e905';
+		font-size: 18px;
+		padding: 15px 15px;
+		background-color: #912B88;
+		border-radius: 24px 24px;
+		display: inline;
+	}	
+}
+
+.account-type {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: 2;
+	color: $grey-1;
+	display: inline;
+}
+
+.account-code {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: 2;
+	color: $grey-1;
+	display: inline;
+}
+
+.account-info {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 12px;
+}
+
+.dot {
+	width: 3px; 
+	height: 3px; 
+	background: $grey-2; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%; 
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px 12px 0px 12px;
+}
+
+.retro-registration-btn {
+	&::before{
+		font-family: $icon-font;
+		content: '\e907';
+		font-size: 18px;
+		margin: 0px 10px 0px -6px;
+		vertical-align: -12%;
+	}	
+}
+
+.add-manufacturer-btn {
+	&::before{
+		font-family: $icon-font;
+		content: '\e900';
+		font-size: 13px;
+		margin: 2px 8px 0px -6px;
+		vertical-align: 50%;
+		float: left;
+	}	
+}
+
+
+.add-user-btn {
+	&::before{
+		font-family: $icon-font;
+		content: '\e900';
+		font-size: 13px;
+		margin: 2px 8px 0px -6px;
+		vertical-align: 50%;
+		float: left;
+	}	
+}
+
+.add-retailer-btn {
+	&::before{
+		font-family: $icon-font;
+		content: '\e900';
+		font-size: 13px;
+		margin: 2px 8px 0px -6px;
+		vertical-align: 50%;
+		float: left;
+	}	
+}
+
+// Typography
+
+.heading-extra-large {
+	font-size: 40px;
+}
+
+.heading-large{
+	font-size: 32px;
+}
+
+.heading-medium{
+	font-size: 28px;
+}
+
+.heading-small{
+	font-size: 24px;
+}
+
+.heading-extra-small{
+	font-size: 20px;
+}
+
+
+.bold {
+	font-weight: 600;
 }
 
 // Spacing 
 
-.margin-top-1 { margin-top: 1em; } 			/* 16px */
-.margin-top-2 { margin-top: 2em; }			/* 32px */
-.margin-top-3 { margin-top: 3em; } 			/* 48px */
-.margin-top-3-5 { margin-top: 3.5em; } 	/* 56px */
-.margin-top-4 { margin-top: 4em; } 			/* 64px */
+.margin-top-0 { margin-top: 0; } 				/* 0px */
+.margin-top-0-5 { margin-top: 0.5em; } 		/* 8px */
+.margin-top-1 { margin-top: 1em;} 				/* 16px */
+
+.margin-top-1-5 { margin-top: 1.5em; } 		/* 24px */
+.margin-top-2 { margin-top: 2em; }				/* 32px */
+.margin-top-3 { margin-top: 3em; } 				/* 48px */
+.margin-top-3-5 { margin-top: 3.5em; } 		/* 56px */
+.margin-top-4 { margin-top: 4em; } 				/* 64px */
 
 .margin-bottom-1 { margin-bottom: 1em; } 		/* 16px */
 .margin-bottom-2 { margin-bottom: 2em; }		/* 32px */
 .margin-bottom-3 { margin-bottom: 3em; }		/* 48px */
 .margin-bottom-4 { margin-bottom: 4em; }		/* 64px */
 
-.padding-bottom-4 { padding-bottom: 4em; }		/* 64px */
+.padding-bottom-4 { padding-bottom: 4em; }	/* 64px */
+
+
+
 // AFRL Homepage Search
 
 .search-container {
@@ -59,7 +267,7 @@ font-size: 24px;
 .search-btn {
 	height: 48px;
 	width: 48px;
-	background-color: #097567;
+	background-color: $primary;
 	border-style: none;
 	display: inline-block;
 	margin-left: -5px;
@@ -88,6 +296,8 @@ font-size: 24px;
 	margin: 0px 3px 0px 0px;
 	&::last-child {
 		margin: 0px 3px 0px 3px;
+	}
 }
 
-}
+//
+
