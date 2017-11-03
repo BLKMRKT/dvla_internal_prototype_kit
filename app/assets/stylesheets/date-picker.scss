@@ -15,7 +15,7 @@ margin-bottom: 4px;
 .form-group {
 	float: left;
 	
-	input {
+	.date-picker-input {
 		margin-right: 10px;
 	}
 }
@@ -31,4 +31,25 @@ margin: 10px;
 	width: 6px; 
 	height: 2px; 
 	background: $grey-2; 
+}
+
+.calendar-btn {
+	height: 40px;
+	width: 40px;
+	background-color: #ffffff;
+	border: 1px solid $grey-2;
+	display: inline-block;
+	margin-left: -5px;
+	vertical-align: sub;
+	border-radius: 0px 3px 3px 0px;
+	float: left;
+	margin: 22px 0px 0px -2px;
+
+	&::before{
+		font-family: $icon-font;
+		color: $primary;
+		content: '\e901';
+		font-size: 18px;
+		margin-left: -2px;
+	}	
 }

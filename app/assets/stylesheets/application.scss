@@ -262,6 +262,11 @@
 	width: 67.3%;
 	padding-left: 13px !important;
 	position: relative;
+	margin-right: 0px;
+	
+	input {
+		margin-right: 0px;
+	}
 }
 
 .search-btn {
@@ -281,6 +286,8 @@
 		margin-left: -2px;
 	}	
 }
+
+
 
 .border-bottom-grey {
 	padding-bottom: 8px;
