@@ -10,23 +10,19 @@ margin-bottom: 4px;
 	font-size: 16px;
 	border: 1px solid $grey-2;
 	border-radius: 3px;
+	width: 110px;
 }
 
 .form-group {
 	float: left;
-	
-	.date-picker-input {
-		margin-right: 10px;
-	}
 }
 
 .date-range-filter {
-float: right;
-margin: 10px;
+
 }
 
 .divider { 
-	margin: 40px 10px 0px 10px;
+	margin: 18px 10px 0px 10px;
 	float: left;
 	width: 6px; 
 	height: 2px; 
@@ -43,7 +39,7 @@ margin: 10px;
 	vertical-align: sub;
 	border-radius: 0px 3px 3px 0px;
 	float: left;
-	margin: 22px 0px 0px -2px;
+	margin: 0px 0px 0px -2px;
 
 	&::before{
 		font-family: $icon-font;
