@@ -15,7 +15,7 @@ gulp.task('run-dvla-gulp', () => {
 });
 
 gulp.task('copy-styles', () => {
-    return gulp.src(`${elementsDir}vendor/assets/stylesheets/*.*`)
+    return gulp.src(`${elementsDir}app/assets/stylesheets/*.*`)
         .pipe(gulp.dest('app/assets/stylesheets/'))
 })
 
