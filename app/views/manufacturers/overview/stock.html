@@ -1,0 +1,314 @@
+{% extends 'layout-fluid.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
+{% endblock %}
+{% block content %}
+<div class="row">
+
+	{% include 'includes/manufacturer-header.html' %} 
+
+	<div class="col-12"> <!-- Tabs-main -->
+		<ul class="tabs">
+			<li class="tab active"><a href="/manufacturers/overview.html">Overview</a></li>
+			<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
+			<li class="tab"><a href="/manufacturers/users.html">Users</a></li>
+			<li class="tab"><a href="/manufacturers/details.html">Details</a></li>
+		</ul>
+	</div> <!-- end .col-12 -->
+
+	<div class="tab-content"> <!-- Subtabs -->
+		<div class="col-9">
+			<ul class="sub-tabs minus-margin-top-8" style="padding-left:0px; width:98%;">
+				<li class="sub-tab"><a href="/manufacturers/overview/summary">Summary</a></li>
+				<li class="sub-tab"><a href="/manufacturers/overview/financial">Financial</a></li>
+				<li class="sub-tab"><a href="/manufacturers/overview/performance">Performance</a></li>
+				<li class="sub-tab active"><a href="/manufacturers/overview/stock">Stock</a></li>
+			</ul>
+		</div> <!-- end .col-9 -->
+
+
+		<div class="col-3">
+			<div class="minus-margin-top-2">
+
+				<form class="form">
+
+					<div class="date-form-group">
+						<label for="date-from" class="visuallyHidden">
+							<div class="label-title date-input-label" >From:</div>
+						</label>
+						<input type="text" id="date-from" class="date-picker-input form-control" value="10/11/2017" />
+					</div>
+
+					<div class="divider"></div>
+
+					<div class="date-form-group">
+						<label for="date-from" class="visuallyHidden">
+							<div class="label-title date-input-label">To:</div>
+						</label>
+						<input type="text" id="date-from" class="date-picker-input form-control" value="10/12/2017"/>
+					</div>
+					<button class="calendar-btn"></button>
+
+				</form>
+			</div>			
+		</div> <!-- end .col-3 -->
+
+		<p>Extract <a href="#">CSV</a></p>
+
+		<div class="row">
+			<div class="col-3">
+
+				<div class="filter-group">
+					<h2 class="heading-small margin-top-2 border-bottom padding-bottom-1" style="width: 90%;">Filter by:</h2>
+
+					<form class="form">
+						<div class="form-group no-bottom margin-top-1">
+
+							<fieldset style="width:90%;">
+
+								<div class="form-group padding-bottom-3 border-bottom margin-bottom-0" id="make" style="width;100%;">
+									<h3 class="heading-extra-small padding-bottom-1" for="make">Price</h3>
+
+									<input type="checkbox" name="make-1" id="make-checkbox-1" class="filter-checkbox">
+									<label for="make-checkbox-1" class="filter-checkbox-label">Under &#163;40,000</label><br>
+
+									<input type="checkbox" name="make-2" id="make-checkbox-2" class="filter-checkbox">
+									<label for="make-checkbox-2" class="filter-checkbox-label">Over &#163;40,000</label>
+								</div>
+
+								<div class="form-group filter-group margin-bottom-1 border-bottom padding-bottom-3" id="models" style="">
+									<h3 class=" heading-extra-small margin-top-3 padding-bottom-1" for="models">Models</h3>
+
+									<input type="checkbox" name="models-1" id="models-checkbox-1" class="filter-checkbox">
+									<label for="models-checkbox-1" class="filter-checkbox-label">Golf GTI</label><br>
+
+									<input type="checkbox" name="models-2" id="models-checkbox-2" class="filter-checkbox">
+									<label for="models-checkbox-2" class="filter-checkbox-label">Scirocco</label><br>
+
+									<input type="checkbox" name="models-3" id="models-checkbox-3" class="filter-checkbox">
+									<label for="models-checkbox-3" class="filter-checkbox-label">Transporter</label><br>
+
+									<input type="checkbox" name="models-4" id="models-checkbox-4" class="filter-checkbox">
+									<label for="models-checkbox-4" class="filter-checkbox-label">Beetle</label><br>
+								</div>
+
+							</fieldset>  
+						</div>
+					</form>		
+
+				</div> <!-- end of .filters -->
+			</div> <!-- end of .filters -->
+
+			<div class="col-9">
+				<div class="row">
+
+
+					<div class="col-4" >
+						<div class="data-highlight margin-top-1">
+							<div class="header">Total amount owed</div>
+							<div class="content">&#163;20,650</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="data-highlight margin-top-1">
+							<div class="header">First registration fees</div>
+							<div class="content">&#163;5,500</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="data-highlight margin-top-1">
+							<div class="header">Vehicle excise duty</div>
+							<div class="content">&#163;15,150</div>
+						</div>
+					</div>
+
+
+					<div class="col-12"> <!-- Table -->
+						<table class="margin-top-4">
+							<thead class="tableHead-finance">
+								<th>VIN (120)</th>
+								<th>Retailer Name</th>
+								<th>MVRIS</th>
+								<th><abbr title="First registration">FR</abbr> Fee</th>
+								<th><abbr title="Vehicle Exercise Duty">VED</abbr></th>
+								<th>Price</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000001</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000002</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000003</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000004</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000005</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000006</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000007</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000008</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000009</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000010</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000011</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000012</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000013</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000014</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000015</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000016</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000017</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000018</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000019</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+								<tr>
+									<td><a href="#">EXAMPLEVIN000020</a></td>
+									<td>Harison Motors</td>
+									<td>718192</td>
+									<td>&#163;55</td>
+									<td>&#163;185</td>
+									<td>&#163;18,500</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+					</div> <!-- end .col-9 -->
+				</div>
+			</div>
+		</div>
+
+	</div> <!-- end .tab-content -->
+
+
+</div><!--  end .row  -->
+{% endblock %}

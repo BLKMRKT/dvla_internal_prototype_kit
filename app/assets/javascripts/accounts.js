@@ -1,10 +1,15 @@
-var name = location.search.split('name=')[1];
+//var name = location.search.split('name=')[1];
 
-var manufacturer = getManufacturer(name);
+if (member.currentManufacturer !== undefined) {
+	var manufacturer = member.currentManufacturer;
+	var retailers = manufacturer.retailers;
 
-$(document).ready(function() {
-	$('.account-name').html(manufacturer.name);
-	$('.account-code').html('(' + manufacturer.id + ')');
-});
+	$(document).ready(function() {
+		$('.account-name').html(manufacturer.name);
+		$('.account-code').html('(' + manufacturer.id + ')');
+	});
+} 
 
+
+// Retailer list
 

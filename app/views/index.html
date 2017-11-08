@@ -62,39 +62,9 @@
 		validate();
 	});
 	 
-//	function validate() {
-//		var validInput = true;
-//		var userID = $('input[name=userID]').val();
-//		var passWord = $('input[name=passWord]').val();
-//		
-//		$('.userID.error-message').hide();
-//		$('#quserID').removeClass('error');
-//		$('.passWord.error-message').hide();
-//		$('#qpassWord').removeClass('error');
-//
-//		
-//		if ((userID == '') || (userID == undefined)) {
-//			$('#quserID').addClass('error');
-//			$('.userID.error-message').show();
-//			$('.error-summary').show();
-//			$('body').scrollTop(0);
-//			validInput = false;
-//		} 
-//
-//		
-//		if ((passWord == '') || (passWord == undefined)) {
-//			$('#qpassWord').addClass('error');
-//			$('.passWord.error-message').show()
-//			$('.error-summary').show();
-//			$('body').scrollTop(0);
-//			validInput = false;
-//		}
-//
-//		if (validInput) {
-//			go('/afrl-home');
-//		} 
-//	}
-	
+	if (member.questions === undefined) {
+		member.questions = {};
+	}	
 
 </script>
 {% endblock %}

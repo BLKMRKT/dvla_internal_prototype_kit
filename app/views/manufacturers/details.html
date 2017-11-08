@@ -1,0 +1,94 @@
+{% extends 'layout-fluid.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
+{% endblock %}
+{% block content %}
+<div class="row">
+
+	{% include 'includes/manufacturer-header.html' %} 
+
+	<div class="col-12">
+		<ul class="tabs">
+			<li class="tab"><a href="/manufacturers/overview/summary.html">Overview</a></li>
+			<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
+			<li class="tab"><a href="/manufacturers/users.html">Users</a></li>
+			<li class="tab active"><a href="/manufacturers/details.html">Details</a></li>
+		</ul>
+	</div> <!-- end .col-12 -->
+	
+	<div class="col-8">
+		
+		<div class="tab-content">
+			<div class="list">
+				<div class="list-title-row">
+					<div class="list-title">
+						Details
+					</div>
+					<div class="list-change">
+						<a href="#">Change</a>
+					</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Name</div>
+					<div class="list-data">Liam Betsworth</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Address</div>
+					<div class="list-data">
+						123 Example Road<br>
+						Swansea<br>
+						SA1 2BC
+					</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Telephone</div>
+					<div class="list-data">01792 102910</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Email</div>
+					<div class="list-data" >admin@bentleyld.com</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Supplier code</div>
+					<div class="list-data">B189</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Individual contact</div>
+					<div class="list-data">Mr David Jones</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Financial responsibility</div>
+					<div class="list-data">Yes</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Companies VAT number</div>
+					<div class="list-data">123456789</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Date of account setup</div>
+					<div class="list-data">1st November 2016</div>
+				</div>
+			</div>
+			
+			<div class="list">
+				<div class="list-title-row">
+					<div class="list-title">
+						Account status
+					</div>
+					<div class="list-change">
+						<a href="#">Change</a>
+					</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Status</div>
+					<div class="list-data"><span class="active-marker">Active</span></div>
+				</div>
+
+			</div>
+		</div>
+		
+	</div> <!-- end .col-12 -->
+</div> <!-- end .row -->
+		
+	{% endblock %}
