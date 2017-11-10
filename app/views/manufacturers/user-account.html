@@ -1,0 +1,64 @@
+{% extends 'layout-fluid.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block content %}
+<div class="row"> 
+	
+	{% include 'includes/user-header.html' %} 
+	
+	<div class="col-8">
+		<div class="list">
+			<div class="list-title-row">
+				<div class="list-title">
+					Details
+				</div>
+				<div class="list-change">
+					<a href="#">Change</a>
+				</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Name</div>
+				<div class="list-data">Liam Betsworth</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Address</div>
+				<div class="list-data">
+					123 Example Road<br>
+					Swansea<br>
+					SA1 2BC
+				</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Telephone</div>
+				<div class="list-data">01792 102910</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Email</div>
+				<div class="list-data" >admin@bentleyld.com</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Supplier code</div>
+				<div class="list-data">B189</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Individual contact</div>
+				<div class="list-data">Mr David Jones</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Financial responsibility</div>
+				<div class="list-data">Yes</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Companies VAT number</div>
+				<div class="list-data">123456789</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Date of account setup</div>
+				<div class="list-data">1st November 2016</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
+{% endblock %}

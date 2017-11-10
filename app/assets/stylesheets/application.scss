@@ -25,23 +25,23 @@
 .tableHead {
 	
 	th:nth-child(1){
-	width: 18%;
+		width: 16%;
 	}
-	
+
 	th:nth-child(2){
 		width: 8%;
 	}
-	
+
 	th:nth-child(3){
-		width: 28%;	
+		width: 34%;
 	}
-	
+
 	th:nth-child(4){
 		width: 10%;
 	}
-	
+
 	th:nth-child(5){
-		width: 8.5%;
+		width: 15%;
 	}
 }
 
@@ -49,7 +49,7 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	min-width:  50px;
-	max-width: 500px;
+	max-width: 100%;
 	white-space: nowrap;
 }
 
@@ -101,20 +101,32 @@
 	}	
 }
 
+.user-icon {
+	display: inline-block;
+	vertical-align: middle;
+
+	&::before{
+		font-family: $icon-font;
+		color: #ffffff;
+		content: '\e90b';
+		font-size: 18px;
+		padding: 15px 15px;
+		background-color: #81BC00;
+		border-radius: 24px 24px;
+		display: inline;
+	}	
+}
+
 .account-type {
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 13px;
-	letter-spacing: 2;
+	font-size: 16px;
+	letter-spacing: 1;
 	color: $grey-1;
 	display: inline;
 }
 
-.account-code {
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 13px;
-	letter-spacing: 2;
+.account-code-header {
+	font-size: 14px;
+	letter-spacing: 1;
 	color: $grey-1;
 	display: inline;
 }
@@ -430,7 +442,7 @@
 
 .border-bottom-grey {
 	padding-bottom: 8px;
-	margin-bottom: 28px;
+	margin-bottom: 16px;
 	border-bottom: 1px solid $grey-3;
 	width: 98%;
 }
@@ -440,6 +452,7 @@
 	padding: 17px 50px;
 	border-radius: 3px;
 	margin: 0px 3px 0px 0px;
+	display: inline-block;
 	&::last-child {
 		margin: 0px 3px 0px 3px;
 	}
@@ -479,25 +492,54 @@
 .tableHead-retailers {
 
 	th:nth-child(1){
-		width: 28%;
+		width: 16%;
+		border-top: none;
 	}
 
 	th:nth-child(2){
-		width: 27%;
+		width: 8%;
+		border-top: none;
 	}
 
 	th:nth-child(3){
-		width: 13%;	
+		width: 34%;
+		border-top: none;
 	}
 
 	th:nth-child(4){
 		width: 10%;
+		border-top: none;
 	}
 
 	th:nth-child(5){
-		width: 10%;
+		width: 15%;
+		border-top: none;
 	}
 }
+
+.tableHead-users {
+
+	th:nth-child(1){
+		width: 20%;
+		border-top: none;
+	}
+
+	th:nth-child(2){
+		width: 8%;
+		border-top: none;
+	}
+
+	th:nth-child(3){
+		width: 34%;
+		border-top: none;
+	}
+
+	th:nth-child(4){
+		width: 10%;
+		border-top: none;
+	}
+}
+
 
 .bold {
 	font-weight: 700;
@@ -516,7 +558,7 @@
 .summary-highlight-value {
 	span {
 		color: #6F777B;
-}
+	}
 
 }
 
@@ -528,10 +570,21 @@
 	
 	p {
 		font-size: 18px;
-		color: 
 	}
 }
 
 .active-marker {
-	background-color:	#c2df92;
+	background-color:	$success-lighter;
+	padding: 6px 11px 6px 10px;
+	border-radius: 3px;
+	font-size: 15px;
+}
+
+.admin-marker {
+	background-color:	$secondary-lightest;
+	padding: 6px 10px 6px 9px;
+	border-radius: 3px;
+	font-size: 13px;
+	float: right;
+	margin-right: 16px;
 }

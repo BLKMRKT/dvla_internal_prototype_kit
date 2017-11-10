@@ -1,6 +1,7 @@
 {% extends 'layout-fluid.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 {% endblock %}
 {% block content %}
 <div class="row">
@@ -10,7 +11,7 @@
 	<div class="col-12">
 		<ul class="tabs">
 			<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
-			<li class="tab"><a href="/manufacturers/users.html">Manufacturers staff</a></li>
+			<li class="tab"><a href="/manufacturers/users.html">Users</a></li>
 			<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
 			<li class="tab active"><a href="/manufacturers/details.html">Details</a></li>
 		</ul>
@@ -18,72 +19,55 @@
 	
 	<div class="col-8">
 		
-		<div class="tab-content margin-top-6">
+		<div class="tab-content">
 			<div class="list">
 				<div class="list-title-row">
 					<div class="list-title">
-						Individual Contact
+						Details
 					</div>
 					<div class="list-change">
 						<a href="#">Change</a>
 					</div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Individual contact</div>
-					<div class="list-data contact-name"></div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Email</div>
-					<div class="list-data email-address"></div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Telephone</div>
-					<div class="list-data phone-number"></div>
-				</div>
-
-			</div>
-			
-			<div class="list">
-				<div class="list-title-row">
-					<div class="list-title">
-						Manufacturer details
-					</div>
-					<div class="list-change">
-						<a href="#">Change</a>
-					</div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Manufacturer Name</div>
-					<div class="list-data account-name"></div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Supplier code</div>
-					<div class="list-data account-code"></div>
+					<div class="list-property">Name</div>
+					<div class="list-data">Liam Betsworth</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Address</div>
-					<div class="list-data address">
+					<div class="list-data">
+						123 Example Road<br>
+						Swansea<br>
+						SA1 2BC
 					</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Telephone</div>
-					<div class="list-data manufacturer-phone-number"></div>
+					<div class="list-data">01792 102910</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Email</div>
-					<div class="list-data manufacturer-email-address"></div>
+					<div class="list-data" >admin@bentleyld.com</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Supplier code</div>
+					<div class="list-data">B189</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Individual contact</div>
+					<div class="list-data">Mr David Jones</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Financial responsibility</div>
-					<div class="list-data financial-responsibility"></div>
+					<div class="list-data">Yes</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Companies VAT number</div>
-					<div class="list-data VAT-number"></div>
+					<div class="list-data">123456789</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Date of account setup</div>
-					<div class="list-data setup-date"></div>
+					<div class="list-data">1st November 2016</div>
 				</div>
 			</div>
 			
@@ -106,7 +90,5 @@
 		
 	</div> <!-- end .col-12 -->
 </div> <!-- end .row -->
-
-<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
-
+		
 	{% endblock %}

@@ -1,7 +1,6 @@
 {% extends 'layout-fluid.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
-<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 {% endblock %}
 {% block content %}
 <div class="row">
@@ -10,9 +9,9 @@
 
 	<div class="col-12">
 		<ul class="tabs">
-			<li class="tab"><a href="/manufacturers/overview/summary.html">Overview</a></li>
 			<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
-			<li class="tab active"><a href="/manufacturers/users.html">Users</a></li>
+			<li class="tab active"><a href="/manufacturers/users.html">Manufacturers staff</a></li>
+			<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
 			<li class="tab"><a href="/manufacturers/details.html">Details</a></li>
 		</ul>
 	</div> <!-- end .col-12 -->
@@ -23,12 +22,11 @@
 		<div class="row">
 			<div class="col-12">
 				<table>
-					<thead class="tableHead">
-						<th>Manufacturer's (2)</th>
-						<th>Code</th>
-						<th>Address</th>
-						<th>Postcode</th>
-						<th>Contact</th>
+					<thead class="tableHead tableHead-users">
+						<th>Manufacturers staff (6)</th>
+						<th>ID</th>
+						<th>Email address</th>
+						<th>Telephone Number</th>
 					</thead>
 					<tbody id="tableBody">
 					</tbody>
@@ -38,25 +36,34 @@
 		</div><!--  end .row  -->
 	</div><!--  end .row  -->
 
+	<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 	<script>
-		var retailers = AFRL.manufacturers.retailers;
-
-		var manufacturerName1 = AFRL.manufacturers[0].name;
-		var manufacturerName2 = AFRL.manufacturers[1].name;
-
 		var table = '';
 
-		for (var i = 0; i < retailers.length; i++) {
+		for (var i = 0; i < manufacturerUsers.length; i++) {
+			var userFullName = manufacturerUsers[i].forenames + ' ' + manufacturerUsers[i].surnames;
+			
 			table += '<tr>';
-			table += '<td class="bold"><a class="manufacturers-link" href="/manufacturers/retailers?name=' + manufacturers[i].name + '">' + manufacturers[i].name + '</a></td>';
-			table += '<td>' + manufacturers[i].id + '</td>';
-			table += '<td><div class="truncate">' + manufacturers[i].address1 + ', ' + manufacturers[i].address2 + ', ' +  manufacturers[i].address3 + '</div></td>';
-			table += '<td>' + manufacturers[i].postCode + '</div></td>';
-			table += '<td><a href="">' + manufacturers[i].contact.forenames + ' ' + manufacturers[i].contact.surnames + '</a></td>';
+			table += '<td class="bold"><a class="users-link" data-user="' + userFullName + '" href="#">' + manufacturerUsers[i].forenames + ' ' + manufacturerUsers[i].surnames + '</a>';
+//			if (manufacturerUsers[i].privacyClass === 'Admin') {
+//				table += '<span class="admin-marker">Admin</span>';	
+//			}
+		   table += '</td>';
+			table += '<td>' + manufacturerUsers[i].id + '</td>';
+			table += '<td><div><a href="mailto:' + manufacturerUsers[i].emailAddress + '">' + manufacturerUsers[i].emailAddress + '</div></td>';
+			table += '<td>' + manufacturerUsers[i].phoneNumber + '</div></td>';
 			table += '</tr>';
 		}
 
 		$('#tableBody').html(table);
+
+		$('.users-link').click(function(){		
+			var name = $(this).attr("data-user");
+			member.currentUser = name
+			go('/manufacturers/user-account');
+			//			debugger;
+			//navigate(); 
+		});
 
 	</script>
 	{% endblock %}
