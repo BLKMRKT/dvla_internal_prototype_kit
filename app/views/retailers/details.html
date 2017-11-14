@@ -1,73 +1,102 @@
 {% extends 'layout-fluid.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
-<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 {% endblock %}
 {% block content %}
 <div class="row">
 
-	{% include 'includes/manufacturer-header.html' %} 
+	{% include 'includes/retailer-header.html' %} 
 
 	<div class="col-12">
 		<ul class="tabs">
-			<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
-			<li class="tab"><a href="/manufacturers/users.html">Users</a></li>
-			<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
-			<li class="tab active"><a href="/manufacturers/details.html">Details</a></li>
+			<ul class="tabs">
+				<li class="tab"><a href="/retailers/users.html">Retailers staff</a></li>
+				<li class="tab"><a href="/retailers/data/summary.html">Data</a></li>
+				<li class="tab active"><a href="/retailers/details.html">Details</a></li>
+			</ul>
 		</ul>
 	</div> <!-- end .col-12 -->
 	
 	<div class="col-8">
 		
-		<div class="tab-content">
+		<div class="tab-content margin-top-6">
 			<div class="list">
 				<div class="list-title-row">
 					<div class="list-title">
-						Details
+						Individual Contact
 					</div>
 					<div class="list-change">
 						<a href="#">Change</a>
 					</div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Name</div>
-					<div class="list-data">Liam Betsworth</div>
+					<div class="list-property">Individual contact</div>
+					<div class="list-data">
+						<a href="#">
+							<span class="contact-name"></span>
+						</a>
+					</div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Address</div>
+					<div class="list-property">Email</div>
 					<div class="list-data">
-						123 Example Road<br>
-						Swansea<br>
-						SA1 2BC
+						<a href="#">
+							<span class="email-address"></span>
+						</a>
 					</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Telephone</div>
-					<div class="list-data">01792 102910</div>
+					<div class="list-data phone-number"></div>
+				</div>
+
+			</div>
+			
+			<div class="list">
+				<div class="list-title-row">
+					<div class="list-title">
+						Manufacturer details
+					</div>
+					<div class="list-change">
+						<a href="#">Change</a>
+					</div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Email</div>
-					<div class="list-data" >admin@bentleyld.com</div>
+					<div class="list-property">Manufacturer Name</div>
+					<div class="list-data manufacturer-name"></div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Supplier code</div>
-					<div class="list-data">B189</div>
+					<div class="list-data account-code"></div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Individual contact</div>
-					<div class="list-data">Mr David Jones</div>
+					<div class="list-property">Address</div>
+					<div class="list-data address">
+					</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Telephone</div>
+					<div class="list-data manufacturer-phone-number"></div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Email</div>
+					<div class="list-data">
+						<a href="#">
+							<span class="manufacturer-email-address"></span>
+						</a>
+					</div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Financial responsibility</div>
-					<div class="list-data">Yes</div>
+					<div class="list-data financial-responsibility"></div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Companies VAT number</div>
-					<div class="list-data">123456789</div>
+					<div class="list-data VAT-number"></div>
 				</div>
 				<div class="list-row">
 					<div class="list-property">Date of account setup</div>
-					<div class="list-data">1st November 2016</div>
+					<div class="list-data setup-date"></div>
 				</div>
 			</div>
 			
@@ -82,7 +111,7 @@
 				</div>
 				<div class="list-row">
 					<div class="list-property">Status</div>
-					<div class="list-data"><span class="active-marker">Active</span></div>
+					<div class="list-data"><span class="active-marker" id="manufacturer-status"></span></div>
 				</div>
 
 			</div>
@@ -90,5 +119,7 @@
 		
 	</div> <!-- end .col-12 -->
 </div> <!-- end .row -->
-		
+
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
+
 	{% endblock %}

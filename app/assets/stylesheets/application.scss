@@ -25,11 +25,11 @@
 .tableHead {
 	
 	th:nth-child(1){
-		width: 16%;
+		width: 18%;
 	}
 
 	th:nth-child(2){
-		width: 8%;
+		width: 12%;
 	}
 
 	th:nth-child(3){
@@ -42,6 +42,84 @@
 
 	th:nth-child(5){
 		width: 15%;
+	}
+}
+
+.tableHead-finance {
+
+	th:nth-child(1){
+		width: 28%;
+	}
+
+	th:nth-child(2){
+		width: 27%;
+	}
+
+	th:nth-child(3){
+		width: 13%;	
+	}
+
+	th:nth-child(4){
+		width: 10%;
+	}
+
+	th:nth-child(5){
+		width: 10%;
+	}
+}
+
+.tableHead-retailers {
+
+	th:nth-child(1){
+		width: 22%;
+		border-top: none;
+	}
+
+	th:nth-child(2){
+		width: 9%;
+		border-top: none;
+	}
+
+	th:nth-child(3){
+		width: 8%;
+		border-top: none;
+	}
+
+	th:nth-child(4){
+		width: 25%;
+		border-top: none;
+	}
+
+	th:nth-child(5){
+		width: 10%;
+		border-top: none;
+	}
+	th:nth-child(6){
+		width: 15%;
+		border-top: none;
+	}
+}
+
+.tableHead-users {
+
+	th:nth-child(1){
+		width: 20%;
+		border-top: none;
+	}
+
+	th:nth-child(2){
+		width: 8%;
+		border-top: none;
+	}
+
+	th:nth-child(3){
+		width: 34%;
+		border-top: none;
+	}
+
+	th:nth-child(4){
+		width: 10%;
+		border-top: none;
 	}
 }
 
@@ -89,7 +167,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	
-	&::before{
+	&::before {
 		font-family: $icon-font;
 		color: #ffffff;
 		content: '\e905';
@@ -97,6 +175,22 @@
 		padding: 15px 15px;
 		background-color: #912B88;
 		border-radius: 24px 24px;
+		display: inline;
+	}	
+}
+
+.retailer-icon {
+	display: inline-block;
+	vertical-align: middle;
+
+	&::before{
+		font-family: $icon-font;
+		color: #ffffff;
+		content: '\e904';
+		font-size: 23px;
+		padding: 12.5px 12.5px;
+		background-color: #00A7CF;
+		border-radius: 24px;
 		display: inline;
 	}	
 }
@@ -122,6 +216,7 @@
 	letter-spacing: 1;
 	color: $grey-1;
 	display: inline;
+	margin-left: -1px;
 }
 
 .account-code-header {
@@ -466,79 +561,7 @@
 	float: right;
 }
 
-.tableHead-finance {
 
-	th:nth-child(1){
-		width: 28%;
-	}
-
-	th:nth-child(2){
-		width: 27%;
-	}
-
-	th:nth-child(3){
-		width: 13%;	
-	}
-
-	th:nth-child(4){
-		width: 10%;
-	}
-
-	th:nth-child(5){
-		width: 10%;
-	}
-}
-
-.tableHead-retailers {
-
-	th:nth-child(1){
-		width: 16%;
-		border-top: none;
-	}
-
-	th:nth-child(2){
-		width: 8%;
-		border-top: none;
-	}
-
-	th:nth-child(3){
-		width: 34%;
-		border-top: none;
-	}
-
-	th:nth-child(4){
-		width: 10%;
-		border-top: none;
-	}
-
-	th:nth-child(5){
-		width: 15%;
-		border-top: none;
-	}
-}
-
-.tableHead-users {
-
-	th:nth-child(1){
-		width: 20%;
-		border-top: none;
-	}
-
-	th:nth-child(2){
-		width: 8%;
-		border-top: none;
-	}
-
-	th:nth-child(3){
-		width: 34%;
-		border-top: none;
-	}
-
-	th:nth-child(4){
-		width: 10%;
-		border-top: none;
-	}
-}
 
 
 .bold {
@@ -573,9 +596,28 @@
 	}
 }
 
+.list-locked-marker {
+	background-color:	$error-lightest;
+	padding: 6px 10px 6px 10px;
+	border-radius: 3px;
+	font-size: 13px;
+	position:absolute;
+	top: 9;
+	right: 12;
+}
+
+
 .active-marker {
 	background-color:	$success-lighter;
 	padding: 6px 11px 6px 10px;
+	border-radius: 3px;
+	font-size: 15px;
+}
+
+	
+.locked-marker {
+	background-color:	$error-lightest;
+	padding: 6px 10px 6px 10px;
 	border-radius: 3px;
 	font-size: 15px;
 }

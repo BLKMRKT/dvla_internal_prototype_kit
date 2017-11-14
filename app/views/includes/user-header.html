@@ -3,22 +3,22 @@
 		<ol>
 			<li><a href="/">AFRL Home</a></li>
 			<li><a href="/manufacturers-list.html">Manufacturers</a></li>
-			<li><a href="/manufacturers/users.html"><span class="account-name"></span></a></li>
-			<!-- ^ Need to be dynamic, know where you came from  -->
-			<li class="">User name here</li>
+			<li><a href="/manufacturers/users.html"><span class="manufacturer-name"></span></a></li>
+			<!-- ^ Need to be dynamic, know where you came from 'details tab or users tab'  -->
+			<li><span class="user-name"></span> (<span class="user-id"></span>)</li>
 		</ol>
 	</div>
 </div> <!-- end .col-12 -->
 
-<div class="col-5">
+<div class="col-6">
 	<div class="page-context margin-bottom-7">
 		<div class="">
 			<span class="user-icon"></span>
 			<span class="account-info">
 				<div>
-					<span class="account-type"></span>
+					<span class="account-type" id="staff-account-type"></span>
 					<span class="dot"></span>
-					<span class="account-code-header">(<span class="account-code"></span>)</span>
+					<span class="account-code-header">(<span class="user-id"></span>)</span>
 				</div>
 
 				<h1 class="user-name headin-large margin-top-0"></h1>
@@ -27,9 +27,16 @@
 	</div>
 </div><!-- end .col-5 -->
 
-<div class="col-7">
+<div class="col-3">
 	<div class="page-context margin-bottom-3">	
-
+		
+				<div class="actions">
+					<div>
+						<button class="btn btn-secondary"><span class="move-user-btn"></span>Archive user</button>
+						<button class="btn btn-secondary"><span class="archive-retailer-btn"></span>Move user</button>
+					</div>
+				</div>
+	
 	</div> <!-- end page-content -->
 </div> <!-- end .col-7 -->
 

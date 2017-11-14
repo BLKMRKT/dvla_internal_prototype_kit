@@ -1,29 +1,27 @@
 {% extends 'layout-fluid.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
-<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 {% endblock %}
 {% block content %}
 <div class="row">
 
-	{% include 'includes/manufacturer-header.html' %} 
+	{% include 'includes/retailer-header.html' %} 
 
 	<div class="col-12"> <!-- Tabs-main -->
 			<ul class="tabs">
-				<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
-				<li class="tab"><a href="/manufacturers/users.html">Staff</a></li>
-				<li class="tab active"><a href="/manufacturers/data/summary.html">Data</a></li>
-				<li class="tab"><a href="/manufacturers/details.html">Details</a></li>
+				<li class="tab"><a href="/retailers/users.html">Retailers staff</a></li>
+				<li class="tab active"><a href="/retailers/data/summary.html">Data</a></li>
+				<li class="tab"><a href="/retailers/details.html">Details</a></li>
 			</ul>
 	</div> <!-- end .col-12 -->
 
 	<div class="tab-content"> <!-- Subtabs -->
 		<div class="col-9">
 			<ul class="sub-tabs minus-margin-top-8" style="padding-left:0px; width:98%;">
-				<li class="sub-tab"><a href="/manufacturers/data/summary">Summary</a></li>
-				<li class="sub-tab active"><a href="/manufacturers/data/financial">Financial</a></li>
-				<li class="sub-tab"><a href="/manufacturers/data/performance">Performance</a></li>
-				<li class="sub-tab"><a href="/manufacturers/data/stock">Stock</a></li>
+				<li class="sub-tab"><a href="/retailers/data/summary">Summary</a></li>
+				<li class="sub-tab active"><a href="/retailers/data/financial">Financial</a></li>
+				<li class="sub-tab"><a href="/retailers/data/performance">Performance</a></li>
+				<li class="sub-tab"><a href="/retailers/data/stock">Stock</a></li>
 			</ul>
 		</div> <!-- end .col-9 -->
 
@@ -311,4 +309,5 @@
 
 
 </div><!--  end .row  -->
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 {% endblock %}

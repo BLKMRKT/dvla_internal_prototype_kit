@@ -44,10 +44,14 @@
 			var userFullName = manufacturerUsers[i].forenames + ' ' + manufacturerUsers[i].surnames;
 			
 			table += '<tr>';
-			table += '<td class="bold"><a class="users-link" data-user="' + userFullName + '" href="#">' + manufacturerUsers[i].forenames + ' ' + manufacturerUsers[i].surnames + '</a>';
+			table += '<td class="bold" style="position:relative;"><a class="users-link" data-user="' + manufacturerUsers[i].id + '" href="#">' + manufacturerUsers[i].forenames + ' ' + manufacturerUsers[i].surnames + '</a>';
 //			if (manufacturerUsers[i].privacyClass === 'Admin') {
 //				table += '<span class="admin-marker">Admin</span>';	
 //			}
+			
+			if (manufacturerUsers[i].passwordStatus === 'Locked') {
+				table += '<span class="list-locked-marker">Locked</span>';	
+			}
 		   table += '</td>';
 			table += '<td>' + manufacturerUsers[i].id + '</td>';
 			table += '<td><div><a href="mailto:' + manufacturerUsers[i].emailAddress + '">' + manufacturerUsers[i].emailAddress + '</div></td>';
@@ -58,11 +62,9 @@
 		$('#tableBody').html(table);
 
 		$('.users-link').click(function(){		
-			var name = $(this).attr("data-user");
-			member.currentUser = name
+			var id = $(this).attr("data-user");
+			member.currentUser = getUser(id);
 			go('/manufacturers/user-account');
-			//			debugger;
-			//navigate(); 
 		});
 
 	</script>

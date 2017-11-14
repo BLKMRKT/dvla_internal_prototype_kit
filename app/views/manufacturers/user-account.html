@@ -7,7 +7,7 @@
 	
 	{% include 'includes/user-header.html' %} 
 	
-	<div class="col-8">
+	<div class="col-9">
 		<div class="list">
 			<div class="list-title-row">
 				<div class="list-title">
@@ -19,45 +19,69 @@
 			</div>
 			<div class="list-row">
 				<div class="list-property">Name</div>
-				<div class="list-data">Liam Betsworth</div>
+				<div class="list-data user-name"></div>
 			</div>
 			<div class="list-row">
-				<div class="list-property">Address</div>
-				<div class="list-data">
-					123 Example Road<br>
-					Swansea<br>
-					SA1 2BC
-				</div>
+				<div class="list-property">Staff ID</div>
+				<div class="list-data user-id"></div>
 			</div>
 			<div class="list-row">
 				<div class="list-property">Telephone</div>
-				<div class="list-data">01792 102910</div>
+				<div class="list-data user-phone-number"></div>
 			</div>
 			<div class="list-row">
 				<div class="list-property">Email</div>
-				<div class="list-data" >admin@bentleyld.com</div>
+				<div class="list-data">
+					<a href="#">
+						<span class="user-email"></span>
+					</a>
+				</div>
 			</div>
 			<div class="list-row">
-				<div class="list-property">Supplier code</div>
-				<div class="list-data">B189</div>
-			</div>
-			<div class="list-row">
-				<div class="list-property">Individual contact</div>
-				<div class="list-data">Mr David Jones</div>
-			</div>
-			<div class="list-row">
-				<div class="list-property">Financial responsibility</div>
-				<div class="list-data">Yes</div>
-			</div>
-			<div class="list-row">
-				<div class="list-property">Companies VAT number</div>
-				<div class="list-data">123456789</div>
-			</div>
-			<div class="list-row">
-				<div class="list-property">Date of account setup</div>
-				<div class="list-data">1st November 2016</div>
+				<div class="list-property">Privacy class</div>
+				<div class="list-data user-class"></div>
 			</div>
 		</div>
+		
+		<div class="list">
+			<div class="list-title-row">
+				<div class="list-title">
+					Account status
+				</div>
+				<div class="list-change">
+					<a href="#">Change</a>
+				</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Status</div>
+				<div class="list-data"><span class="active-marker user-status"></span></div>
+			</div>
+			<div class="list-row">
+				<div class="list-property">Password</div>
+				<div class="list-data"><span class="active-marker password-status"></span></div>
+			</div>
+		</div>
+		
+		<div class="list">
+			<div class="list-title-row">
+				<div class="list-title">
+					Security questions
+				</div>
+				<div class="list-change">
+					<a href="#">Change</a>
+				</div>
+			</div>
+			<div class="list-row">
+				<div class="list-property"><span class="bold" style="margin-right:12px;">Q1 </span>What is your mothers maiden name?</div>
+				<div class="list-data security-q1-answer"></div>
+			</div>
+			<div class="list-row">
+				<div class="list-property"><span class="bold" style="margin-right:12px;">Q2 </span>What is your security passcode?</div>
+				<div class="list-data security-q2-answer"></div>
+			</div>
+		</div>
+		
+		
 	</div>
 </div>
 <script type="text/javascript" src="/public/javascripts/accounts.js"></script>

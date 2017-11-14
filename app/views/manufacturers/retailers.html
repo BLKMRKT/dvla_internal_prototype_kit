@@ -24,7 +24,8 @@
 				<table>
 					<thead class="tableHead tableHead-retailers">
 						<th>Retailers (2)</th>
-						<th>Code</th>
+						<th>MVRIS</th>
+						<th>ID</th>
 						<th>Address</th>
 						<th>Postcode</th>
 						<th>Contact</th>
@@ -43,7 +44,8 @@
 
 		for (var i = 0; i < retailers.length; i++) {
 			table += '<tr>';
-			table += '<td class="bold"><a class="retailers-link" data-retailer="' + retailers[i].name + '" href="#">' + retailers[i].name + '</a></td>';
+			table += '<td class="bold"><a class="retailers-link" data-retailer="' + retailers[i].id + '" href="#">' + retailers[i].name + '</a></td>';
+			table += '<td>' + retailers[i].MVRIS + '</td>';
 			table += '<td>' + retailers[i].id + '</td>';
 			table += '<td><div class="truncate">' + retailers[i].address1 + ', ' + retailers[i].address2 + ', ' +  retailers[i].address3 + '</div></td>';
 			table += '<td>' + retailers[i].postCode + '</div></td>';
@@ -54,9 +56,11 @@
 		$('#tableBody').html(table);
 
 		$('.retailers-link').click(function(){		
-			var name = $(this).attr("data-retailer");
+			var id = $(this).attr("data-retailer");
+			debugger;
+			member.currentRetailer = getRetailer(id);
 			go('/retailers/users');
-			//			debugger;
+			
 			//navigate(); 
 		});
 	
