@@ -1,5 +1,5 @@
-// Shortcode for routing
-function go(value) {
-	window.location.href = value;
+
+function go(url){
+    window.location.href = url;
 }
 
