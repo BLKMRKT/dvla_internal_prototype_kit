@@ -1,0 +1,230 @@
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block header_bar %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="row"> 
+	<div class="col-7 margin-top-3">
+
+		{% include 'includes/buttons/back.html' %} 
+
+		<form>
+			<div class="form-group margin-top-5 margin-bottom-0">
+				<div class="heading-extra-small section-label margin-bottom-0 margin-top-0">Account Creation</div>
+				
+				<legend class="heading-large border-bottom-grey margin-top-0">
+					<h1 class="heading-large margin-top-0">Create a new manufacturer</h1>
+				</legend>
+				
+				<div class="form-group">
+					
+					<div class="margin-bottom-3" id="manufacturer-name-container">
+						<label for="manufacturer-name">
+							<div class="label-title medium-font">Manufacturer name</div>
+							<div class="label-error">Provide a manufacturer name</div>
+							<input type="text" id="manufacturer-name" class="form-control margin-bottom-2" autofocus/>
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="supplier-code-container">
+						<label for="supplier-code-name">
+							<div class="label-title medium-font">Supplier code</div>
+							<div class="label-error">Provide a supplier code</div>
+							<input type="text" id="supplier-code" class="form-control form-control-1-4 margin-bottom-2"/>
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="address-container">
+						<label for="address">
+							<div class="label-title medium-font">Address</div>
+							<div class="label-error">Provide an address</div>
+							<input type="text" id="address-line-1" name="address" class="form-control"/>
+							<input type="text" id="address-line-2" name="address" class="form-control"/>
+							<input type="text" id="address-line-3" name="address" class="form-control"/>
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="city-container">
+						<label for="city">
+							<div class="label-title medium-font">City</div>
+							<div class="label-error">Provide a city</div>
+							<input type="text" id="city" class="form-control margin-bottom-2" />
+						</label>
+					</div>
+
+					<div class="margin-bottom-3" id="postcode-container">
+						<label for="postcode">
+							<div class="label-title medium-font">Postcode</div>
+							<div class="label-error">Provide a postcode</div>
+							<input type="text" id="postcode" class="form-control form-control-1-2 margin-bottom-2" />
+						</label>
+					</div>
+					
+					<div class="form-group margin-top-5" id="system-type-container">
+						<fieldset class="inline">
+							<legend class="text-large margin-bottom-1">
+
+								What type of account is it?
+								<span class="legend-error margin-bottom-0">Select an option</span>
+							</legend>
+
+							<div class="multiple-choice">
+								<input id="web-account" type="radio" name="system-type" value="Web">
+								<label for="web-account" class="medium-font">Web</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="coop-account" type="radio" name="system-type" value="Coop">
+								<label for="coop-account" class="medium-font">Coop</label>
+							</div>					
+						</fieldset>
+					</div>	
+									
+					<div class="form-group margin-top-5" id="importer-container">
+						<fieldset class="inline">
+							<legend class="text-large margin-bottom-1">
+								Is the manufacturer an importer?
+								<span class="legend-error">Select an option</span>
+							</legend>
+
+							<div class="multiple-choice">
+								<input id="yes" type="radio" name="importer" value="Yes">
+								<label for="yes" class="medium-font">Yes</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="no" type="radio" name="importer" value="No">
+								<label for="no" class="medium-font">No</label>
+							</div>					
+						</fieldset>
+					</div>
+							
+				</div>				
+			</div>
+
+			{% include 'includes/buttons/continue.html' %} 
+			
+		</form>
+
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+
+<script type="text/javascript">
+	$(".btn ").click(function(){
+		validate();
+	});
+	
+	$('#importer-container').hide();
+
+	if (member.questions === undefined) {
+		member.questions = {};
+	}
+	
+	if (member.questions.systemType === 'Coop') {
+		$('#importer-container').hide();
+	}
+
+	function validate() {
+		var valid = true;
+
+		$('#manufacturer-name-container, #supplier-code-container, #address-container, #city-container, #postcode-container, #importer-container').removeClass('error');
+		$('.label-error').hide();
+		$('.legend-error').hide();
+
+		var manufacturerName = $('#manufacturer-name').val();
+		var supplierCode = $('#supplier-code').val();
+		var address1 = $('#address-line-1').val();
+		var address2 = $('#address-line-2').val();
+		var address3 = $('#address-line-3').val();
+		var city = $('#city').val();
+		var postcode = $('#postcode').val();
+		var importer = $('input[name=importer]:checked').val();
+		var systemType = $('input[name=system-type]:checked').val();
+
+		if (manufacturerName === '') {
+			$('#manufacturer-name-container').addClass('error');
+			$('#manufacturer-name-container .label-error').show();
+			valid = false;
+		} 
+
+		if (supplierCode === '') {
+			$('#supplier-code-container').addClass('error');
+			$('#supplier-code-container .label-error').show();
+			valid = false;
+		}
+		
+		if (address1 === '') {
+			$('#address-container').addClass('error');
+			$('#address-container .label-error').show();
+			valid = false;
+		}
+		
+		if (city === '') {
+			$('#city-container').addClass('error');
+			$('#city-container .label-error').show();
+			valid = false;
+		} 
+
+		if (postcode === '') {
+			$('#postcode-container').addClass('error');
+			$('#postcode-container .label-error').show();
+			valid = false;
+		}
+		
+		if (systemType === undefined) {
+					$('#system-type-container').addClass('error');
+					$('#system-type-container .legend-error').show();
+					valid = false;
+				} 
+		
+		
+		if (systemType === 'Web') {
+			$('#importer-container').show();
+		}
+		
+//		if ((member.questions.systemType = 'Web') && (importer === undefined)) {
+//			$('#importer-container').addClass('error');
+//			$('#importer-container .legend-error').show();
+//			valid = false;
+//		}
+		
+		if (member.questions.systemType = 'Web') {
+			if (importer === undefined) {
+				$('#importer-container').addClass('error');
+				$('#importer-container .legend-error').show();
+				valid = false;
+			} else {
+				valid = true;
+			}	
+		}
+
+		
+		if (valid) { 
+			
+			member.questions.manufacturer = manufacturerName;
+			member.questions.supplierCode = supplierCode;
+			member.questions.address1 = address1;
+			member.questions.address2 = address2;
+			member.questions.address3 = address3;
+			member.questions.city = city;
+			member.questions.postcode = postcode;
+			member.questions.systemType = systemType;
+			member.questions.importer = importer;
+			
+		
+			go('/account-creation/contact-creation');
+		}
+
+	}
+
+
+
+</script>
+{% endblock %}
+
+

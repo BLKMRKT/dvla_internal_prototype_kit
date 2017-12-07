@@ -1,0 +1,121 @@
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block header_bar %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="row"> 
+	<div class="col-7 margin-top-3">
+
+		{% include 'includes/buttons/back.html' %} 
+
+		<form class="margin-top-5 margin-bottom-0">
+			<div class="form-group">
+				
+				<div class="heading-extra-small section-label margin-bottom-0 margin-top-0">Account Creation</div>
+				<h1 class="heading-large margin-top-0 margin-bottom-2">Create a new <span id="creation-account-type" style="text-transform: lowercase;"></span></h1>
+				
+				<h2 class="heading-small border-bottom-grey margin-top-1">Contact details</h2>
+
+				<div class="margin-bottom-3" id="contact-name">
+					<label for="contact-name-input">
+						<div class="label-title medium-font">Name</div>
+						<div class="label-error">Provide a name</div>
+						<input type="text" id="contact-name-input" class="form-control margin-bottom-2" autofocus/>
+					</label>
+				</div>
+				
+				<div class="margin-bottom-3" id="contact-email">
+					<label for="contact-email-input">
+						<div class="label-title medium-font">Email</div>
+						<div class="label-error">Provide an email</div>
+						<input type="text" id="contact-email-input" class="form-control margin-bottom-2"/>
+					</label>
+				</div>
+				
+				<div class="margin-bottom-3" id="contact-phone">
+					<label for="contact-phone-input">
+						<div class="label-title medium-font">Telephone number</div>
+						<div class="label-error">Provide a telephone number</div>
+						<input type="text" id="contact-phone-input" class="form-control margin-bottom-2"/>
+					</label>
+				</div>
+			
+			</div>
+					
+			{% include 'includes/buttons/continue.html' %} 
+			
+		</form>
+
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+
+<script type="text/javascript">
+	$(".btn").click(function(){
+		validate();
+	});
+	
+	$('#creation-account-type').html(member.questions.accountType);
+
+	function validate() {
+		var valid = true;
+		var accountCreation = true;
+		
+		$('#contact-name, #contact-email, #contact-phone').removeClass('error');
+		$('.label-error').hide();
+		
+		var contactName = $('#contact-name-input').val();
+		var contactEmail = $('#contact-email-input').val();
+		var contactPhone = $('#contact-phone-input').val();
+
+		if (contactName === '') {
+			$('#contact-name').addClass('error');
+			$('#contact-name .label-error').show();
+			valid = false;
+			} 
+		
+		if (contactEmail === '') {
+			$('#contact-email').addClass('error');
+			$('#contact-email .label-error').show();
+			valid = false;
+			}
+		
+		if (contactPhone === '') {
+			$('#contact-phone').addClass('error');
+			$('#contact-phone .label-error').show();
+			valid = false;
+			}
+		
+		if (valid) {
+			var dateOfCreation = moment().format('D MMMM YYYY');
+			if (member.questions.accountType == 'Manufacturer') {
+				member.questions.contactName = contactName;
+				member.questions.contactEmail = contactEmail;
+				member.questions.contactPhone = contactPhone;
+				member.questions.dateOfCreation = dateOfCreation;
+				go('/account-creation/manufacturer-details?accountcreation=true');
+				} 
+
+			if (member.questions.accountType == 'Retailer') {
+				member.questions.contactName = contactName;
+				member.questions.contactEmail = contactEmail;
+				member.questions.contactPhone = contactPhone;
+				member.questions.dateOfCreation = dateOfCreation;
+				go('/account-creation/retailer-details?accountcreation=true');
+				}
+			}
+		
+		}
+
+
+
+</script>
+{% endblock %}
+
+

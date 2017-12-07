@@ -11,24 +11,33 @@
 		<div class="breadcrumbs margin-bottom-7">
 			<ol>
 				<li class="home-icon"><a href="/">AFRL Home</a></li>
-				<li>Manufacturers</li>
+				<li>Accounts</li>
 			</ol>
 		</div>
 
-		<div class="page-context  margin-bottom-6">
-			<h1 class="headin-large margin-bottom-2 margin-top-0">Manufacturers</h1>
+		<div class="page-context margin-bottom-7">
+			<h1 class="headin-large margin-bottom-2 margin-top-0">Accounts</h1>
 			<div class="actions margin-top-0">
-				<button class="btn btn-secondary"><span class="retro-registration-btn"></span>Retrospective registrations</button>
+<!--				<button class="btn btn-secondary"><span class="retro-registration-btn"></span>Retrospective registrations</button>-->
 				<button class="btn btn-secondary"><span class="add-manufacturer-btn"></span>Add a new manufacturer</button>
 			</div>
-
 		</div>
 	</div><!--  end .column  -->
 
 	<div class="row">
 		<div class="col-12">
-			<table>
-				<thead class="tableHead">
+			<ul class="tabs margin-bottom-3">
+				
+				<li class="tab active"><a href="/manufacturers/details.html">Manufacturers</a></li>
+				<!--
+				<li class="tab"><a href="/manufacturers/retailers.html">Retailers</a></li>
+				<li class="tab"><a href="/manufacturers/users.html">Users</a></li>
+				-->
+				
+			</ul>
+			
+			<table class="margin-top-2">
+				<thead class="tableHead tableHead-manufacturers-list">
 					<th>Manufacturer's (2)</th>
 					<th>Supplier Code</th>
 					<th>Address</th>
@@ -67,7 +76,7 @@
 		$('.manufacturers-link').click(function(){		
 			var name = $(this).attr("data-manufacturer");
 			member.currentManufacturer = getManufacturer(name);
-			go('/manufacturers/retailers');
+			go('/manufacturer/details');
 //			debugger;
 			//navigate(); 
 		});

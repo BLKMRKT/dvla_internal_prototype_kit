@@ -1,0 +1,92 @@
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block header_bar %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="row"> 
+	<div class="col-12 margin-top-3">
+		
+		{% include 'includes/buttons/back.html' %} 
+
+		<form>
+		
+			<div class="form-group margin-top-5" id="account-type-container">
+				<fieldset>
+
+					<legend class="heading-medium margin-bottom-1">
+						<div class="heading-extra-small section-label margin-bottom-0 margin-top-0">Account Creation</div>
+						What type of account do you want to create?
+						<span class="legend-error">Select an option</span>
+					</legend>
+
+					<div class="multiple-choice">
+						<input id="retailer-account" type="radio" name="account-type" value="Retailer">
+						<label for="retailer-account" class="medium-font">Retailer</label>
+					</div>
+					<div class="multiple-choice">
+						<input id="manufacturer-account" type="radio" name="account-type" value="Manufacturer">
+						<label for="manufacturer-account" class="medium-font">Manufacturer</label>
+					</div>					
+				</fieldset>
+			</div>
+				
+			{% include 'includes/buttons/continue.html' %} 
+			
+		</form>
+
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+
+<script type="text/javascript">
+	$(".btn").click(function(){
+		validate();
+	});
+	
+	function validate() {
+		var valid = true;
+		
+		$('#retailer-name-container, #MVRIS-code-container').removeClass('error');
+		$('.legend-error').hide();
+		
+		var accountType = $('input[name=account-type]:checked').val();
+//		var systemType = $('input[name=system-type]:checked').val();
+
+		if (accountType === undefined) {
+			$('#account-type-container').addClass('error');
+			$('#account-type-container .legend-error').show();
+			valid = false;
+		}
+		
+//		if (systemType === undefined) {
+//			$('#system-type-container').addClass('error');
+//			$('#system-type-container .legend-error').show();
+//			valid = false;
+//		} 
+		
+		if ((accountType === 'Retailer') && (valid)) {
+			member.questions.accountType = accountType;
+//			member.questions.systemType = systemType;
+			go('/account-creation/retailer-creation');
+		}
+		
+		if ((accountType === 'Manufacturer') && (valid)) {
+			member.questions.accountType = accountType;
+//			member.questions.systemType = systemType;
+			go('/account-creation/manufacturer-creation');
+		}
+
+	}
+
+</script>
+{% endblock %}
+
+
+
+

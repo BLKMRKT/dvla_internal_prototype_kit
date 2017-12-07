@@ -1,0 +1,272 @@
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block header_bar %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="row"> 
+	<div class="col-7 margin-top-3">
+		
+		{% include 'includes/buttons/back.html' %} 
+		
+		<form>
+			<div class="form-group margin-top-5 margin-bottom-0" id="account-type">
+				<div class="heading-extra-small section-label margin-bottom-0 margin-top-0">Account Creation</div>
+				<legend class="heading-large border-bottom-grey margin-top-0">
+					<h1 class="heading-large margin-top-0">Create a new retailer</h1>
+				</legend>
+				
+				<div class="form-group">
+
+					<div class="margin-bottom-3" id="retailer-name-container">
+						<label for="retailer-name">
+							<div class="label-title medium-font">Retailer name</div>
+							<div class="label-error">Provide a retailer name</div>
+							<input type="text" id="retailer-name" class="form-control margin-bottom-2" autofocus/>
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="MVRIS-code-container">
+						<label for="MVRIS-code">
+							<div class="label-title medium-font">Dealer code</div>
+							<div class="label-error">Provide a dealer code</div>
+							<input type="text" id="dealer-code" class="form-control margin-bottom-2"/>
+						</label>
+					</div>
+
+					<div id="manufacturer-container">
+							<label for="manufacturer">
+								<div class="label-title">Manufacturer</div>
+								<div class="label-error">Provide a manufacturer</div>
+								<div class="label-hint margin-bottom-1">You can search for a manufacturer by the name or code</div>
+							</label>
+							<input id="manufacturer" list="licences" class="form-control margin-bottom-0"/>
+							<datalist id="licences">
+								<select>
+									<option value="Audi">PA</option>
+									<option value="Bentley">KO</option>
+									<option value="Citroen">LP</option>
+									<option value="Daewoo">DS</option>
+									<option value="Ford">WE</option>
+									<option value="Honda">MC</option>
+									<option value="Jaguar">XM</option>
+									<option value="Renault">LR</option>
+								</select>
+							</datalist>
+					</div>
+					
+					<div class="margin-bottom-3 margin-top-3" id="MVRIS-code-container">
+						<label for="MVRIS-code">
+							<div class="label-title medium-font">MVRIS or MRCIS code</div>
+							<div class="label-error">Provide a MVRIS or MRCIS code</div>
+							<input type="text" id="MVRIS-code" class="form-control form-control-1-2 margin-bottom-2"/>
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">	
+					
+					<div class="margin-bottom-3" id="address-container">
+						<label for="address">
+							<div class="label-title medium-font">Address</div>
+							<div class="label-error">Provide an address</div>
+							<input type="text" id="address-line-1" name="address" class="form-control"/>
+							<input type="text" id="address-line-2" name="address" class="form-control"/>
+							<input type="text" id="address-line-3" name="address" class="form-control"/>
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="city-container">
+						<label for="city">
+							<div class="label-title medium-font">City</div>
+							<div class="label-error">Provide a city</div>
+							<input type="text" id="city" class="form-control margin-bottom-2" />
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="postcode-container">
+						<label for="postcode">
+							<div class="label-title medium-font">Postcode</div>
+							<div class="label-error">Provide a postcode</div>
+							<input type="text" id="postcode" class="form-control form-control-1-2 margin-bottom-2" />
+						</label>
+					</div>
+			
+				</div>
+
+				<div class="form-group">
+					
+					<div class="margin-bottom-3" id="companies-house-container">
+						<label for="companies-house">
+							<div class="label-title medium-font">Companies house number</div>
+							<div class="label-error">Provide a companies house number</div>
+							<input type="text" id="companies-house" class="form-control form-control-1-2 margin-bottom-2" />
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="vat-number-container">
+						<label for="vat-number">
+							<div class="label-title medium-font">VAT number</div>
+							<div class="label-error">Provide a VAT number</div>
+							<input type="text" id="vat-number" class="form-control form-control-1-2 margin-bottom-2" />
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="area-code-container">
+						<label for="area-code">
+							<div class="label-title medium-font">Local area code</div>
+							<div class="label-error">Provide a local area code</div>
+							<input type="text" id="area-code" class="form-control form-control-1-4 margin-bottom-2" />
+						</label>
+					</div>
+					
+					<div class="margin-bottom-3" id="reg-pool-container">
+						<label for="reg-pool">
+							<div class="label-title medium-font">Registration pool size</div>
+							<div class="label-hint">Maximum of 200</div>
+							<div class="label-error">Provide a local area code</div>
+							<input type="text" id="reg-pool" class="form-control form-control-1-4 margin-bottom-2" />
+						</label>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div id="associated-manufacturer" class="form-group visuallyHidden">
+				<fieldset class="inset">
+					<label for="amount-received">
+						<div class="label-title heading-small black margin-top-0">Which manufacturer would you like to add this retailer to?</div>
+						<div class="label-hint margin-bottom-2">You can search for a manufacturer by the name or code</div>
+					</label>
+					<input type="text" id="amount-received" class="form-control form-control-3-4" />
+				</fieldset>
+			</div>
+			{% include 'includes/buttons/continue.html' %} 
+		</form>
+
+	</div> <!--  end .column  -->
+</div> <!--  end .row  -->
+
+
+<script type="text/javascript">
+	$(".btn ").click(function(){
+		validate();
+	});
+
+	if (member.questions === undefined) {
+		member.questions = {};
+	}
+		
+	function validate() {
+		var valid = true;
+
+		$('#retailer-name-container, #MVRIS-code-container, #city-container, #postcode-container, #companies-house-container, #vat-number-container, #area-code-container, #reg-pool-container, #manufacturer-container, #address-container').removeClass('error');
+		$('.label-error').hide();
+
+		var retailerName = $('#retailer-name').val();
+		var mvrisCode = $('#MVRIS-code').val();
+		var dealerCode = $('#dealer-code').val();
+		
+		var manufacturer = $('#manufacturer').val();
+
+		var address1 = $('#address-line-1').val();
+		var address2 = $('#address-line-2').val();
+		var address3 = $('#address-line-3').val();
+		
+		var city = $('#city').val();
+		var postcode = $('#postcode').val();
+		var companiesHouse = $('#postcode').val();
+		var vatNumber = $('#vat-number').val();
+		var areaCode = $('#area-code').val();
+		var regPool = $('#reg-pool').val();
+
+		if (retailerName === '') {
+			$('#retailer-name-container').addClass('error');
+			$('#retailer-name-container .label-error').show();
+			valid = false;
+		} 
+
+		if (mvrisCode === '') {
+			$('#MVRIS-code-container').addClass('error');
+			$('#MVRIS-code-container .label-error').show();
+			valid = false;
+		}
+
+		if (manufacturer === '') {
+			$('#manufacturer-container').addClass('error');
+			$('#manufacturer-container .label-error').show();
+			valid = false;
+		}
+		
+		if (address1 === '') {
+			$('#address-container').addClass('error');
+			$('#address-container .label-error').show();
+			valid = false;
+		}
+
+		if (city === '') {
+			$('#city-container').addClass('error');
+			$('#city-container .label-error').show();
+			valid = false;
+		} 
+
+		if (postcode === '') {
+			$('#postcode-container').addClass('error');
+			$('#postcode-container .label-error').show();
+			valid = false;
+		}
+		
+		if (companiesHouse === '') {
+			$('#companies-house-container').addClass('error');
+			$('#companies-house-container .label-error').show();
+			valid = false;
+		}
+		
+		if (vatNumber === '') {
+			$('#vat-number-container').addClass('error');
+			$('#vat-number-container .label-error').show();
+			valid = false;
+		}
+		
+		if (areaCode === '') {
+			$('#area-code-container').addClass('error');
+			$('#area-code-container .label-error').show();
+			valid = false;
+		}
+
+		if (regPool === '') {
+			$('#reg-pool-container').addClass('error');
+			$('#reg-pool-container .label-error').show();
+			valid = false;
+		}	
+		
+		if (valid) {
+			member.questions.retailer = retailerName;
+			member.questions.mvrisCode = mvrisCode;
+			member.questions.dealerCode = dealerCode;
+			member.questions.address1 = address1;
+			member.questions.address2 = address2;
+			member.questions.address3 = address3;
+			member.questions.city = city;
+			member.questions.postcode = postcode;
+			member.questions.companiesHouse = companiesHouse;
+			member.questions.vatNumber = vatNumber;
+			member.questions.areaCode = areaCode;
+			member.questions.regPool = regPool;
+
+			go('/account-creation/contact-creation');
+		}
+
+	}
+	
+	
+
+</script>
+{% endblock %}
+
+

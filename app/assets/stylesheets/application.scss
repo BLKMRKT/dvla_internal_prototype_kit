@@ -1,4 +1,5 @@
 @import 'dvla-internal-elements-node';
+
 @import 'date-picker';
 @import 'filters';
 
@@ -42,6 +43,34 @@
 
 	th:nth-child(5){
 		width: 15%;
+	}
+}
+
+.tableHead-manufacturers-list {
+
+	th:nth-child(1){
+		width: 18%;
+		border-top: none;
+	}
+
+	th:nth-child(2){
+		width: 12%;
+		border-top: none;
+	}
+
+	th:nth-child(3){
+		width: 34%;
+		border-top: none;
+	}
+
+	th:nth-child(4){
+		width: 10%;
+		border-top: none;
+	}
+
+	th:nth-child(5){
+		width: 15%;
+		border-top: none;
 	}
 }
 
@@ -311,6 +340,10 @@
 }
 
 
+.medium-font {
+	font-weight: 500;
+}
+
 .bold {
 	font-weight: 600;
 }
@@ -522,7 +555,6 @@
 	border-style: none;
 	display: inline-block;
 	margin-left: -5px;
-	vertical-align: sub;
 	border-radius: 0px 3px 3px 0px;
 	
 	&::before{
@@ -536,20 +568,22 @@
 
 
 .border-bottom-grey {
-	padding-bottom: 8px;
-	margin-bottom: 16px;
+	padding-bottom: 16px;
+	margin-bottom: 24px;
 	border-bottom: 1px solid $grey-3;
-	width: 98%;
+	width: 100%;
 }
 
 
 .afrl-btn {
-	padding: 17px 50px;
+	padding: 17px;
+	width: 100%;
 	border-radius: 3px;
-	margin: 0px 3px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	display: inline-block;
+	text-align: center;
 	&::last-child {
-		margin: 0px 3px 0px 3px;
+		margin: 0px 0px 0px 0px;
 	}
 }
 
@@ -629,4 +663,102 @@
 	font-size: 13px;
 	float: right;
 	margin-right: 16px;
+}
+
+.section-label {
+	font-size: 20px;
+	font-weight: 300;
+	color: $text-secondary-colour;
+}
+
+.black {
+	color: $text-primary-colour;
+}
+
+
+
+.account-name {
+	font-size: 16px;
+	letter-spacing: 1;
+	color: $grey-1;
+	display: inline;
+	margin-left: -1px;
+}
+
+.account-type-large {
+	font-size: 16px;
+	letter-spacing: 1;
+	color: $grey-1;
+	display: inline;
+}
+
+legend .legend-error {
+	display: none;
+}
+
+label .label-error {
+	display: none;
+}
+
+
+
+
+
+.date-input-label {
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+
+.date-picker-input {
+	border: 1px solid $grey-1;
+	background-color: #F9F9F9;
+	font-size: 16px;
+	font-weight: 400;
+	border: 1px solid $grey-2;
+	border-radius: 3px;
+	width: 110px;
+}
+
+.date-form-group {
+	float: left;
+}
+
+.date-range-filter {
+
+}
+
+.divider { 
+	margin: 18px 10px 0px 10px;
+	float: left;
+	width: 6px; 
+	height: 2px; 
+	background: $grey-2; 
+}
+
+.calendar-btn {
+	height: 40px;
+	width: 40px;
+	background-color: #ffffff;
+	border: 1px solid $grey-2;
+	display: inline-block;
+	margin-left: -5px;
+	vertical-align: sub;
+	border-radius: 0px 3px 3px 0px;
+	float: left;
+	margin: 0px 0px 0px -2px;
+
+	&::before{
+		font-family: $icon-font;
+		color: $primary;
+		content: '\e901';
+		font-size: 18px;
+		margin-left: -2px;
+	}	
+}
+
+.label-title-sml {
+	color: #0B0C0C;
+	font-size: 16px;
+	margin-bottom: 8px;
+	line-height: 18px;
 }
