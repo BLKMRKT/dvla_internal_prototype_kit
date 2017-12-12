@@ -1,3 +1,6 @@
+{% block header_application_title %}
+<a href="/index" title="Service home">AFRL Helpdesk</a>
+{% endblock %}
 {% extends 'layout-fixed.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
@@ -71,7 +74,7 @@
 							<legend class="text-large margin-bottom-1">
 
 								What type of account is it?
-								<span class="legend-error margin-bottom-0">Select an option</span>
+								<span class="legend-error margin-bottom-0" id="error-system-type">Select an option</span>
 							</legend>
 
 							<div class="multiple-choice">
@@ -85,11 +88,11 @@
 						</fieldset>
 					</div>	
 									
-					<div class="form-group margin-top-5" id="importer-container">
+					<div class="form-group margin-top-5"  id="importer-container">
 						<fieldset class="inline">
 							<legend class="text-large margin-bottom-1">
 								Is the manufacturer an importer?
-								<span class="legend-error">Select an option</span>
+								<span class="legend-error" id="error-importer">Select an option</span>
 							</legend>
 
 							<div class="multiple-choice">
@@ -118,21 +121,32 @@
 	$(".btn ").click(function(){
 		validate();
 	});
-	
-	$('#importer-container').hide();
 
 	if (member.questions === undefined) {
 		member.questions = {};
 	}
 	
-	if (member.questions.systemType === 'Coop') {
-		$('#importer-container').hide();
+	$('#importer-container').hide();
+	
+	if ($('input[name=system-type]:checked').val() === 'Web') {
+		$('#importer-container').show();
 	}
 
-	function validate() {
-		var valid = true;
+	$("input[name='system-type']").change(function() {
+		$('#question').removeClass('error');
+		$('.error-message.a').hide();
 
-		$('#manufacturer-name-container, #supplier-code-container, #address-container, #city-container, #postcode-container, #importer-container').removeClass('error');
+		if ($(this).val() === 'Web') {
+			$('#importer-container').show();
+		} else {
+			$('#importer-container').hide();
+		}
+	});
+
+	function validate() {
+		var validInput = true;
+
+		$('#manufacturer-name-container, #supplier-code-container, #address-container, #city-container, #postcode-container, #system-type-container, #importer-container').removeClass('error');
 		$('.label-error').hide();
 		$('.legend-error').hide();
 
@@ -143,69 +157,54 @@
 		var address3 = $('#address-line-3').val();
 		var city = $('#city').val();
 		var postcode = $('#postcode').val();
-		var importer = $('input[name=importer]:checked').val();
 		var systemType = $('input[name=system-type]:checked').val();
+		var importer = $('input[name=importer]:checked').val();
 
-		if (manufacturerName === '') {
+		if ((manufacturerName === '')  || (manufacturerName === undefined)) {
 			$('#manufacturer-name-container').addClass('error');
 			$('#manufacturer-name-container .label-error').show();
-			valid = false;
+			validInput = false;
 		} 
 
-		if (supplierCode === '') {
+		if ((supplierCode === '')  || (supplierCode === undefined)) {
 			$('#supplier-code-container').addClass('error');
 			$('#supplier-code-container .label-error').show();
-			valid = false;
+			validInput = false;
 		}
 		
-		if (address1 === '') {
+		if ((address1 === '')  || (address1 === undefined)) {
 			$('#address-container').addClass('error');
 			$('#address-container .label-error').show();
-			valid = false;
+			validInput = false;
 		}
 		
-		if (city === '') {
+		if ((city === '')  || (city === undefined)) {
 			$('#city-container').addClass('error');
 			$('#city-container .label-error').show();
-			valid = false;
+			validInput = false;
 		} 
 
-		if (postcode === '') {
+		if ((postcode === '') || (postcode === undefined)) {
 			$('#postcode-container').addClass('error');
 			$('#postcode-container .label-error').show();
-			valid = false;
+			validInput = false;
 		}
-		
-		if (systemType === undefined) {
-					$('#system-type-container').addClass('error');
-					$('#system-type-container .legend-error').show();
-					valid = false;
-				} 
-		
 		
 		if (systemType === 'Web') {
-			$('#importer-container').show();
-		}
-		
-//		if ((member.questions.systemType = 'Web') && (importer === undefined)) {
-//			$('#importer-container').addClass('error');
-//			$('#importer-container .legend-error').show();
-//			valid = false;
-//		}
-		
-		if (member.questions.systemType = 'Web') {
-			if (importer === undefined) {
+			if ((importer === 'Yes') || (importer === 'No')) {
+//				validInput = true;
+			} else {
 				$('#importer-container').addClass('error');
 				$('#importer-container .legend-error').show();
-				valid = false;
-			} else {
-				valid = true;
-			}	
+				validInput = false;
+			}
+		} else {
+			$('#system-type-container').addClass('error');
+			$('#system-type-container .legend-error').show();
+			validInput = false;
 		}
-
 		
-		if (valid) { 
-			
+		if (validInput) { 
 			member.questions.manufacturer = manufacturerName;
 			member.questions.supplierCode = supplierCode;
 			member.questions.address1 = address1;
@@ -214,17 +213,49 @@
 			member.questions.city = city;
 			member.questions.postcode = postcode;
 			member.questions.systemType = systemType;
-			member.questions.importer = importer;
-			
-		
+			member.questions.importer = importer;			
 			go('/account-creation/contact-creation');
 		}
+				
+			
+//			$('#system-type-container').addClass('error');
+//			$('#system-type-container .legend-error').show();
+//			valid = false;
+//		} else if (systemType === 'Web') {
+//			if ((importer === '') || (importer === undefined)) {
+//				$('#importer-container').addClass('error');
+//				$('#importer-container .legend-error').show();
+//				valid = false;
+//			} else {
+//				valid = true;
+//			}
+//		}
+		
+//		if ((systemType === '') || (systemType === undefined)) {
+//			$('#system-type-container').addClass('error');
+//			$('#system-type-container .legend-error').show();
+//			valid = false;
+//		} else if (systemType === 'Web') {
+//			if ((importer === '') || (importer === undefined)) {
+//				$('#importer-container').addClass('error');
+//				$('#importer-container .legend-error').show();
+//				valid = false;
+//			} else {
+//				valid = true;
+//			}
+//		}
+		
+//		if (member.questions.systemType = 'Web') {
+//			if ((importer === undefined) || (importer === undefined)) {
+//				$('#importer-container').addClass('error');
+//				$('#importer-container .legend-error').show();
+//				valid = false;
+//			} else {
+//				valid = true;
+//			}
+//		}
+
 
 	}
-
-
-
 </script>
 {% endblock %}
-
-

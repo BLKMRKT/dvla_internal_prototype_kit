@@ -982,3 +982,32 @@ function getRetailer(retailerID) {
 
 }
 
+// Manufacturers table v1
+
+//var manufacturers = AFRL.manufacturers;
+//
+//var manufacturerName1 = AFRL.manufacturers[0].name;
+//var manufacturerName2 = AFRL.manufacturers[1].name;
+//
+//var table = '';
+//
+//for (var i = 0; i < manufacturers.length; i++) {
+//	table += '<tr>';
+//	table += '<td class="bold"><a class="manufacturers-link" data-manufacturer="' + manufacturers[i].name + '" href="#">' + manufacturers[i].name + '</a></td>';
+//	table += '<td>' + manufacturers[i].supplierCode + '</td>';
+//
+//	table += '<td><div class="truncate">' + manufacturers[i].address1 + ', ' + manufacturers[i].address2 + ', ' +  manufacturers[i].address3 + '</div></td>';
+//	table += '<td>' + manufacturers[i].postCode + '</div></td>';
+//	table += '<td><a href="">' + manufacturers[i].contact.forenames + ' ' + manufacturers[i].contact.surnames + '</a></td>';
+//	table += '</tr>';
+//}
+//
+//$('#tableBody').html(table);
+//
+//$('.manufacturers-link').click(function(){		
+//	var name = $(this).attr("data-manufacturer");
+//	member.currentManufacturer = getManufacturer(name);
+//	go('/manufacturer/details');
+//
+//});
+

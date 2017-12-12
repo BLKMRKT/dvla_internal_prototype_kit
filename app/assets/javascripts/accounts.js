@@ -17,6 +17,12 @@ $("#create-retailer").click(function(){
 	go('/account-creation/retailer-creation');
 });
 
+$("#create-account").click(function(){
+	go('/account-creation/account-type');
+});
+
+
+
 if (member.currentManufacturer !== undefined) {
 	
 	var manufacturer = member.currentManufacturer;

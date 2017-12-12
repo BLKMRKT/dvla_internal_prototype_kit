@@ -12,11 +12,8 @@ var AFRL = {
 				postCode: 'SA1 9JK'
 			},
 			phoneNumber: '01792 220039',
-			emailAddress: 'admin@honda.co.uk',
 			supplierCode: 'BP',
 			accountStatus: 'Active',
-			financialResponsibility: 'Yes',
-			VATnumber: '12013291',
 			accountCreation: '1 November 2004',
 			contact: {
 				title: 'Dr',
@@ -32,8 +29,40 @@ var AFRL = {
 			users: [
 				'6543'
 			]
-		}
+		}, // End of Honda Manufacturer
+		{
+		name: 'Bentley',
+		id: '192101',
+		accountType: 'Manufacturer',
+		address: {
+		line1: '10 North Rd',
+		line2: 'Llandaff',
+		line3: '',
+		city: 'Cardiff',
+		postCode: 'CF24 PLK'
+		},
+
+		supplierCode: 'BP',
+		accountStatus: 'Active',
+		financialResponsibility: 'Yes',
+		VATnumber: '12013291',
+		accountCreation: '1 November 2004',
+		contact: {
+		title: 'Dr',
+		forenames: 'Liam',
+		surnames: 'Betsworth',
+		id: '1201',
+		phoneNumber: '01792 698039',
+		emailAddress: 'liam.betsworth@honda.co.uk',
+		},
+		retailers: [
+		'9284'
 	],
+	users: [
+		'6543'
+	]
+	} // End of Bentley Manufacturer
+	], // End of Manufacturers
 	retailers: [
 		{
 			name: 'Honda Whitchurch',

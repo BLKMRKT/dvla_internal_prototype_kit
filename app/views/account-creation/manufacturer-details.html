@@ -1,3 +1,6 @@
+{% block header_application_title %}
+<a href="/index" title="Service home">AFRL Helpdesk</a>
+{% endblock %}
 {% extends 'layout-fluid.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
@@ -14,7 +17,7 @@
 			<li class="tab"><a href="/manufacturers/users.html">Manufacturers staff</a></li>
 			<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
 -->
-			<li class="tab active"><a href="/manufacturer/details.html">Details</a></li>
+			<li class="tab active"><a href="/account-creation/manufacturer-details.html">Details</a></li>
 		</ul>
 	</div> <!-- end .col-12 -->
 	
