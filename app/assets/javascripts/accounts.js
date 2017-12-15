@@ -81,10 +81,17 @@ if (member.currentManufacturer !== undefined) {
 	$('.date-of-creation').html(member.questions.dateOfCreation);	
 
 
-	// Creating a retailer - account data
+	// Manufacturer details
+	$('.manufacturer-name').html(member.questions.manufacturer);
+	$('.supplier-code').html(member.questions.supplierCode);
+	$('.full-address').html(member.questions.address1 + '<br>' + member.questions.address2 + '<br>' + member.questions.address3 + '<br>' + member.questions.postcode);
+
+
 
 	// Page context
 	$('.retailer-name').html(member.questions.retailer);
+
+
 
 //if (member.currentRetailer !== undefined) {
 //	var retailer = member.currentRetailer;
