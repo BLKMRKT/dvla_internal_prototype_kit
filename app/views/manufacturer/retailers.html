@@ -9,10 +9,14 @@
 
 	<div class="col-12">
 		<ul class="tabs">
-			<li class="tab active"><a href="/manufacturers/retailers.html">Retailers</a></li>
-			<li class="tab"><a href="/manufacturers/users.html">Manufacturers staff</a></li>
-			<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
-			<li class="tab"><a href="/manufacturers/details.html">Details</a></li>
+
+
+<!--
+<li class="tab"><a href="/manufacturers/users.html">Manufacturers staff</a></li>
+<li class="tab"><a href="/manufacturers/data/summary.html">Data</a></li>
+-->
+			<li class="tab"><a href="/manufacturer/details.html">Details</a></li>
+			<li class="tab active"><a href="/manufacturer/retailers.html">Retailers</a></li>
 		</ul>
 	</div> <!-- end .col-12 -->
 
@@ -23,7 +27,7 @@
 			<div class="col-12">
 				<table>
 					<thead class="tableHead tableHead-retailers">
-						<th>Retailers (2)</th>
+						<th>Retailers (3)</th>
 						<th>MVRIS</th>
 						<th>ID</th>
 						<th>Address</th>
@@ -40,6 +44,8 @@
 
 	<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 	<script>
+		
+		var retailers = getManufacturerRetailers(member.currentManufacturer)
 		var table = '';
 
 		for (var i = 0; i < retailers.length; i++) {
@@ -57,9 +63,8 @@
 
 		$('.retailers-link').click(function(){		
 			var id = $(this).attr("data-retailer");
-			debugger;
 			member.currentRetailer = getRetailer(id);
-			go('/retailers/users');
+			go('/retailer/details');
 			
 			//navigate(); 
 		});

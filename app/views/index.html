@@ -1,5 +1,5 @@
 {% block header_application_title %}
-<a href="/index" title="Service home">AFRL Helpdesk</a>
+<a href="/index" title="Service home">RaV Helpdesk</a>
 {% endblock %}
 {% extends 'layout-fixed.html' %}
 {% block head %} 
@@ -9,71 +9,26 @@
 {% endblock %}
 
 
-{% block after_header %}
-<div class="search-container">
-<div class="container">
-	<div class="row"> 
-		
-			<div class="col-1"></div>
-			<div class="col-10 margin-top-6 margin-bottom-3">
 
-				<form class="form">
-					<div class="form-group no-bottom">
-						
-							<legend class="visuallyhidden">Search AFRL</legend>
-
-							<h1 class="search-label">Search AFRL</h1>
-							<label class="visuallyHidden">Search</label>
-							<div>
-								<select id="search-prefix" class="form-control">
-									<option value="Manufacturers">Manufacturers</option>
-									<option value="Retailers">Retailers</option>
-									<option value="Users">Users</option>
-								</select>
-								
-<!--
-								<div class="form-group">
-									<div class="input-group input-group-1-2">
-										<input type="text" class="form-control" placeholder="Search" aria-label="Search">
-										<span class="input-group-btn">
-											<button class="btn btn-primary btn-search" type="button"></button>
-										</span>
-									</div>
-								</div>
--->
-
-								<input class="search-box form-control" style="width:69.2%;" id="" name="" type="text" placeholder="Search by manufacturer name or supplier code">
-								<button class="search-btn btn btn-primary"></button>
-							</div>
-						
-					</div>  <!--  form-group  -->
-				</form>
-
-
-		</div> <!--  end .column  -->
-	</div> <!--  end .row  -->
-</div> <!--  end .container  -->
-</div>
-{% endblock %}
 {% block global_header_bar %}
 {% endblock %}
 {% block content %}
 
 <div class="row"> 
-	<div class="col-1"></div>
-	<div class="col-10 margin-top-3">
+<!--	<div class="col-1"></div>-->
+	<div class="col-12 margin-top-3">
 		
-		<h2 class="heading-extra-small margin-bottom-1 border-bottom-grey">AFRL web functions</h2>
+		<h2 class="heading-extra-small margin-bottom-1 border-bottom-grey">RaV helpdesk</h2>
 		
 		<div class="row">
 			<div class="col-4">
 				<a href="account-creation/account-type.html" class="btn btn-primary afrl-btn">Create an account</a>
 			</div>
 			<div class="col-4">
-				<a href="#" class="btn btn-primary afrl-btn">Retrospective registrations</a>
+				<a href="data-enquiry/data-list.html" class="btn btn-primary afrl-btn">Data enquiry</a>
 			</div>
 			<div class="col-4">
-				<a href="account-lists/manufacturers-list.html" class="btn btn-primary afrl-btn" >View accounts</a>
+				<a href="account-lists/manufacturers-list.html" class="btn btn-primary afrl-btn">View accounts</a>
 			</div>
 		</div>
 	</div> <!--  end .column  -->

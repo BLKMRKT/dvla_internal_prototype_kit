@@ -1,0 +1,188 @@
+{% block header_application_title %}
+<a href="/index" title="Service home">RaV Helpdesk</a>
+{% endblock %}
+{% extends 'layout-fluid.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block header_bar %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row"> 
+	<div class="col-2"></div>
+	<div class="col-8">
+	<div class="breadcrumbs margin-bottom-7">
+		<ol>
+			<li class="home-icon"><a href="/">RaV helpdesk</a></li>
+			<li>Data enquiry</li>
+		</ol>
+	</div>
+	<div class="page-context margin-bottom-2">
+		<h1 class="headin-large margin-bottom-0 margin-top-0">Data enquiry</h1>
+	</div>
+	</div><!--  end .column  -->
+</div>
+
+<div class="row">
+	<div class="col-2"></div>
+	<div class="col-4">
+		<h2 class="heading-extra-small">Summary</h2>
+		<div class="page-context margin-top-1 margin-bottom-2">									
+			<span class="account-type">2/2 Manufacturer's</span>
+			<span class="dot"></span>
+			<span class="account-type">7/7 Retailers</span>
+		</div><!-- end .col-4 -->
+		
+	</div>
+	<div class="col-4">
+		<div class="form-group date-range">
+			<div class="input-group input-group-1-2">
+				<input type="text" class="form-control form-control-1-4" value="13-11-2017" aria-label="Search">
+				<input type="text" class="form-control form-control-1-4" value="13-12-2017" aria-label="Search">
+				<span class="input-group-btn">
+					<button class="btn btn-primary btn-search" type="button"></button>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-2"></div>
+	<div class="col-2">
+		<div class="data-highlight light blue">
+			<span class="title">
+				No. registrations:
+			</span>
+			<span class="content">
+				729
+			</span>
+		</div>
+	</div>
+	<div class="col-2">
+		<div class="data-highlight light blue">
+			<span class="title">
+				Total FR fee:
+			</span>
+			<span class="content">
+				£92,055
+			</span>
+		</div>
+	</div>
+	<div class="col-2">
+		<div class="data-highlight light blue">
+			<span class="title">
+				Total VED fee:
+			</span>
+			<span class="content">
+				£89,190
+			</span>
+		</div>
+	</div>
+	<div class="col-2">
+		<div class="data-highlight light blue">
+			<span class="title">
+				Total fees:
+			</span>
+			<span class="content">
+				£181,245
+			</span>
+		</div>
+	</div>
+</div> <!-- Summary boxes -->
+
+<div class="row"> 
+	<div class="col-2"></div>
+	<div class="col-8">
+		<div class="accordion-labels margin-top-4">
+			<span class="name-label">Name</span>
+			<span class="registrations-label">No. registrations:</span>
+			<span class="FR-fees-label">Total FR fees:</span>
+			<span class="VED-fees-label">Total VED fees:</span>
+			<span class="total-fees">Total:</span>
+		</div>
+		<div class="accordion margin-top-1 margin-bottom-0">
+			<div class="accordion-section opened">
+				<button class="accordion-header margin-bottom-0" style="margin-bottom: 0px;">
+					<span class="accordion-icon"></span>
+					<span class="title">Jaguar (JK)
+						<span class="total-retailers">5/5 retailers</span>
+					</span>
+
+					<div class="accordion-data">
+						<div class="total-registrations">
+							230
+						</div>
+						<div class="total-fr-fee">
+							£40,090
+						</div>
+						<div class="total-ved-fee">
+							£52,055
+						</div>
+						<div class="total-fee">
+							£92,055
+						</div>
+					</div>
+				</button>
+				<div class="accordion-content" style="margin-top:0px;">
+					<table>
+						<thead style="display: none">
+							<th>Name</th>
+							<th>No. registrations</th>
+							<th>Total FR fees:</th>
+							<th>Total VED fees:</th>
+							<th>Total:</th>
+						</thead>
+						<tbody class="data-enquiry-table">
+							<tr>
+								<td>
+									<input type="checkbox" name="vehicle" id="checkbox-id-1" value="M1">
+									<label for="checkbox-id-1" style="padding-left: 8px;">
+										<span class="medium-font">Cardiff Whitchurch (180)</span>
+									</label>
+								</td>
+								<td>100</td>
+								<td>£21,090</td>
+								<td>£24,055</td>
+								<td>£28,055</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="vehicle" id="checkbox-id-1" value="M1">
+									<label for="checkbox-id-1" style="padding-left: 8px;">
+										<span class="medium-font">FRF Swansea (119)</span>
+									</label>
+								</td>
+								<td>130</td>
+								<td>£19,000</td>
+								<td>£26,055</td>
+								<td>£26,055</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>	
+		</div> <!-- end of Jaguar accordion -->
+		
+		
+		
+	</div>
+</div>
+
+<script>
+	$('.accordion-header').click(function () {
+		var parent = $(this).parent();
+
+		if (parent.hasClass('opened')) {
+			parent.removeClass('opened');
+			parent.addClass('closed');
+		} else {
+			parent.removeClass('closed');
+			parent.addClass('opened');
+		}
+	});
+</script>
+
+	{% endblock %}

@@ -1,7 +1,7 @@
 var AFRL = {
 	manufacturers: [
 		{
-			name: 'Honda',
+			name: 'Jaguar',
 			id: '928456',
 			accountType: 'Manufacturer',
 			address: {
@@ -31,7 +31,7 @@ var AFRL = {
 			]
 		}, // End of Honda Manufacturer
 		{
-		name: 'Bentley',
+		name: 'Landrover',
 		id: '192101',
 		accountType: 'Manufacturer',
 		address: {
@@ -42,7 +42,7 @@ var AFRL = {
 		postCode: 'CF24 PLK'
 		},
 
-		supplierCode: 'BP',
+		supplierCode: 'KL',
 		accountStatus: 'Active',
 		financialResponsibility: 'Yes',
 		VATnumber: '12013291',
@@ -65,7 +65,7 @@ var AFRL = {
 	], // End of Manufacturers
 	retailers: [
 		{
-			name: 'Honda Whitchurch',
+			name: 'FRF Motors',
 			manufacturer: 'honda',
 			id: '9284',
 			MVRIS: '123379',
@@ -79,7 +79,7 @@ var AFRL = {
 			},
 			phoneNumber: '02920 698039',
 			emailAddress: 'honda.whitchurch@honda.co.uk',
-			supplierCode: 'B189',
+			retailerCode: 'B189',
 			accountStatus: 'Active',
 			financialResponsibility: 'Yes',
 			VATnumber: '12013291',

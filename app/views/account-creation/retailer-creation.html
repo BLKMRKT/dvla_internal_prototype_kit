@@ -1,5 +1,5 @@
 {% block header_application_title %}
-<a href="/index" title="Service home">AFRL Helpdesk</a>
+<a href="/index" title="Service home">RaV Helpdesk</a>
 {% endblock %}
 {% extends 'layout-fixed.html' %}
 {% block head %} 
@@ -7,8 +7,6 @@
 {% endblock %}
 {% block header_bar %}
 {% endblock %}
-
-
 
 {% block content %}
 
@@ -34,8 +32,8 @@
 						</label>
 					</div>
 					
-					<div class="margin-bottom-3" id="MVRIS-code-container">
-						<label for="MVRIS-code">
+					<div class="margin-bottom-3" id="dealer-code-container">
+						<label for="dealer-code">
 							<div class="label-title medium-font">Dealer code</div>
 							<div class="label-error">Provide a dealer code</div>
 							<input type="text" id="dealer-code" class="form-control margin-bottom-2"/>
@@ -63,7 +61,7 @@
 							</datalist>
 					</div>
 					
-					<div class="margin-bottom-3 margin-top-3" id="MVRIS-code-container">
+					<div class="margin-bottom-3 margin-top-3" id="MVRIS-container">
 						<label for="MVRIS-code">
 							<div class="label-title medium-font">MVRIS or MRCIS code</div>
 							<div class="label-error">Provide a MVRIS or MRCIS code</div>
@@ -157,7 +155,7 @@
 
 
 <script type="text/javascript">
-	$(".btn ").click(function(){
+	$(".btn").click(function(){
 		validate();
 	});
 
@@ -168,7 +166,7 @@
 	function validate() {
 		var valid = true;
 
-		$('#retailer-name-container, #MVRIS-code-container, #city-container, #postcode-container, #companies-house-container, #vat-number-container, #area-code-container, #reg-pool-container, #manufacturer-container, #address-container').removeClass('error');
+		$('#retailer-name-container, #dealer-code-container, #MVRIS-container, #city-container, #postcode-container, #companies-house-container, #vat-number-container, #area-code-container, #reg-pool-container, #manufacturer-container, #address-container').removeClass('error');
 		$('.label-error').hide();
 
 		var retailerName = $('#retailer-name').val();
@@ -180,7 +178,6 @@
 		var address1 = $('#address-line-1').val();
 		var address2 = $('#address-line-2').val();
 		var address3 = $('#address-line-3').val();
-		
 		
 		var city = $('#city').val();
 		var postcode = $('#postcode').val();
@@ -196,8 +193,14 @@
 		} 
 
 		if (mvrisCode === '') {
-			$('#MVRIS-code-container').addClass('error');
-			$('#MVRIS-code-container .label-error').show();
+			$('#MVRIS-container').addClass('error');
+			$('#MVRIS-container .label-error').show();
+			valid = false;
+		}
+		
+		if (dealerCode === '') {
+			$('#dealer-code-container').addClass('error');
+			$('#dealer-code-container .label-error').show();
 			valid = false;
 		}
 
