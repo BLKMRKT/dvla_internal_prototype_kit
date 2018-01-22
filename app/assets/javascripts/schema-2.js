@@ -4,6 +4,7 @@ var AFRL = {
 			name: 'Jaguar',
 			id: '928456',
 			accountType: 'Manufacturer',
+			email:'liam.betsworth@honda.co.uk',
 			address: {
 				line1: '123 Example Rd',
 				line2: 'Llansamlet',
@@ -29,7 +30,7 @@ var AFRL = {
 			users: [
 				'6543'
 			]
-		}, // End of Honda Manufacturer
+		}, // End of Jaguar Manufacturer
 		{
 		name: 'Landrover',
 		id: '192101',
