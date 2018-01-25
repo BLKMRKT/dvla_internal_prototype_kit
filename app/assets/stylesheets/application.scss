@@ -867,11 +867,22 @@ label .label-error {
 	}
 }
 
-.data-enquiry-table tr {
+.data-enquiry-name {
+	width: 38%!important;
+}
+
+.data-enquiry-cell {
+	width: 15%!important;
+	margin-right: 0!important;
+	display: inline-block!important;
+	
+}
+
+/*.data-enquiry-table tr {
 
 	td:nth-child(1){
 		padding-left:20px;
-		width: 40%;
+		width: 38%;
 	}
 
 	td:nth-child(2){
@@ -890,6 +901,7 @@ label .label-error {
 		width: 15%;
 	}
 }
+*/
 
 .heading-grey {
 	color:#6F777B;
