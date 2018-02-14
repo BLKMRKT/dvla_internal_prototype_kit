@@ -783,17 +783,19 @@ label .label-error {
     }
 }
 
-.data-enquiry-title {
-    font-weight: 500;
-    width: 15%;
-    display: inline-block;
-    float: left;
-    padding-bottom: 8px;
-}
+.data-enquiry-labels {   
+    span {
+        font-weight: 500;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        padding-bottom: 8px;
+    }
 
-.data-enquiry-title:first-child {
-    width: 40%;
-    padding: 0 0 0 50px;
+    span:first-child {
+        width: 40%;
+        padding: 0 0 0 50px;
+    }
 }
 
 .accordion .accordion-header {

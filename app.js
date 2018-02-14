@@ -1,6 +1,6 @@
 var express = require('express');
 var nunjucks = require('nunjucks');
-var routes = require('./app/routes.js')
+var routes = require('./app/routes.js');
 var path = require('path');
 var app = express();
 var port = (process.env.PORT || 4444);
