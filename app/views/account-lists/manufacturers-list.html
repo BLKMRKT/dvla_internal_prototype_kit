@@ -1,7 +1,7 @@
 {% block header_application_title %}
-<a href="/index" title="Service home">RaV Helpdesk</a>
+<a href="/index" title="Service home">Vehicles Helpdesk</a>
 {% endblock %}
-{% extends 'layout-fluid.html' %} 
+{% extends 'layout-fixed.html' %}
 {% block head %} 
 	{% include 'includes/head.html' %} 
 
@@ -53,7 +53,7 @@
 		for (var i = 0; i < manufacturers.length; i++) {
 			table += '<tr>';
 			
-			table += '<td class="bold"><a class="manufacturers-link" data-manufacturer="' + manufacturers[i].id + '" href="#">' + manufacturers[i].name + '</a></td>';
+			table += '<td class="bold"><a class="manufacturers-link" " href="/manufacturer/details?recordtype=manufacturer&recordid='+ manufacturers[i].id +'">' + manufacturers[i].name + '</a></td>';
 			
 			table += '<td>' + manufacturers[i].supplierCode + '</td>';
 
@@ -65,13 +65,6 @@
 		}
 
 		$('#tableBody').html(table);
-		
-		$('.manufacturers-link').click(function(){		
-			var id = $(this).attr("data-manufacturer");
-			member.currentManufacturer = getManufacturer(id);
-			go('/manufacturer/details');
- 
-		});
 												 
 //		function navigate() {
 //			var value = manufacturers[i].name ;

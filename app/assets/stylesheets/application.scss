@@ -4,19 +4,9 @@
 @import 'filters';
 
 
-//#content {
-//	min-height: 650px !important;
-//}
-
-//.home-icon {
-//	&::before{
-//		font-family: $icon-font;
-//		content: '\e905';
-//		font-size: 24px;
-//		margin-left: -2px;
-//		display: inline-block;
-//	}	
-//}
+html {
+    overflow-y: scroll;
+}
 
 .tab-content {
 	margin-top: 32px;
@@ -876,3 +866,6 @@ label .label-error {
 	width: 60%;
 }
 
+.container, #global-header-bar {
+    width: 1366px !important;
+}

@@ -1,19 +1,56 @@
-var accountcreation = location.search.split('accountcreation=')[1];
+if (getQueryVariable('recordid')) {
+    var recordid = getQueryVariable('recordid');
+};
 
+if (getQueryVariable('recordtype')) {
+    var recordtype = getQueryVariable('recordtype');
+    if (recordtype == 'manufacturer') { var record = getManufacturer(recordid) };
+    if (recordtype == 'retailer') { var record = getRetailer(recordid) };
+    if (recordtype == 'member') { var record = member.accounts[recordid] };
+    console.log(record);
+};
 
 // Account creation
 
-if (accountcreation == "true") {
-	$('#manufacturer-success').show();
-}
+if (getQueryVariable('accountcreation')) {
+    var accountcreation = getQueryVariable('accountcreation');
+    if (accountcreation == "true") {
+        $('#manufacturer-success').show();
+        $('#retailer-success').show();
+    };
+};
 
-if (accountcreation == "true") {
-	$('#retailer-success').show();
-}
 
+// Creating a retailer - account data
+
+// Page context
+$('.retailer-name').html(record.name);
+$('.manufacturer-name').html(record.name);
+$('.manufacturer-details-tab').html('<a href="/manufacturer/details?recordtype=manufacturer&recordid='+ recordid +'">Details</a>');
+$('.manufacturer-retailers-tab').html('<a href="/manufacturer/retailers?recordtype=manufacturer&recordid='+ recordid +'">Retailers</a>');
+
+// Individual contact
+$('.contact-name').html(record.contact.title + ' ' + record.contact.forenames + ' ' + record.contact.surnames);
+$('.contact-email').html(record.contact.emailAddress);
+$('.contact-phone').html(record.contact.phoneNumber);
+
+// Manufacturer details
+$('.manufacturer-code').html(record.supplierCode);
+$('.full-address').html(record.address.line1 + '<br>' + record.address.line2 + '<br>' + record.address.city + '<br>' + record.address.postCode);
+$('.system-type').html(record.systemType);
+$('.companies-house').html(record.companiesHouse);
+$('.VAT-number').html(record.VATnumber);
+$('.date-of-creation').html(record.accountCreation);
+
+
+
+// Retailer specific details
+$('.retailer-code').html(record.retailerCode);
+
+                  
 // Account actions
 
-// Manufacturer page - create a reatiler
+// Manufacturer page - create a retailer
 $("#create-retailer").click(function(){
 	if (member.questions === undefined) {
 		member.questions = {};
@@ -21,76 +58,10 @@ $("#create-retailer").click(function(){
 	go('/account-creation/retailer-creation');
 });
 
-// Manufacturer page - create a reatiler
+// Manufacturer page - create a retailer
 $("#create-account").click(function(){
 	if (member.questions === undefined) {
 		member.questions = {};
 	}	
 	go('/account-creation/account-type');
 });
-
-
-
-if (member.currentManufacturer !== undefined) {
-	
-	var manufacturer = member.currentManufacturer;
-	var manufacturerUsers = manufacturer.users;	
-	var retailers = manufacturer.retailers;
-	var user = member.currentUser;
-	
-}
-
-	// Creating a retailer - account data
-
-	// Page context
-	$('.retailer-name').html(member.questions.retailer);
-
-	// Individual contact
-	$('.contact-name').html(member.questions.contactName);
-	$('.contact-email').html(member.questions.contactEmail);
-	$('.contact-phone').html(member.questions.contactPhone);
-	$('.contact-fax').html(member.questions.contactFax);
-	
-	// Retailer details
-	$('.retailer-name').html(member.questions.retailer);
-	$('.MVRIS-code').html(member.questions.mvrisCode);
-	$('.dealer-code').html(member.questions.dealerCode);
-	$('.full-address').html(member.questions.address1 + '<br>' + member.questions.address2 + '<br>' + member.questions.address3 + '<br>' + member.questions.postcode);
-	$('.system-type').html(member.questions.systemType);
-	$('.companies-house').html(member.questions.companiesHouse);
-	$('.VAT-number').html(member.questions.vatNumber);
-	$('.date-of-creation').html(member.questions.dateOfCreation);	
-
-	// Manufacturer details
-	$('.manufacturer-name').html(member.questions.manufacturer);
-	$('.supplier-code').html(member.questions.supplierCode);
-	$('.full-address').html(member.questions.address1 + '<br>' + member.questions.address2 + '<br>' + member.questions.address3 + '<br>' + member.questions.postcode);
-
-
-	// Page context
-	$('.retailer-name').html(member.questions.retailer);
-
-
-
-//if (member.currentRetailer !== undefined) {
-//	var retailer = member.currentRetailer;
-//	var retailerUsers = retailer.users;
-//	
-//	// Retailer data
-//	$('#retailer-account-type').html(retailer.accountType);
-//	$('.retailer-name').html(retailer.name);
-//	$('.retailer-code').html(retailer.supplierCode);
-//}
-
-
-// Account status 
-
-//if (user.passwordStatus === 'Locked') {
-//	$('.password-status').removeClass('active-marker');
-//	$('.password-status').addClass('locked-marker');	
-//}
-
-
-
-
-

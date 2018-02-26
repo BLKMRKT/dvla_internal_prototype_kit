@@ -14,6 +14,7 @@ var AFRL = {
 			},
 			phoneNumber: '01792 220039',
 			supplierCode: 'BP',
+			systemType: 'CO-OP',
 			accountStatus: 'Active',
 			accountCreation: '1 November 2004',
 			contact: {
@@ -44,17 +45,18 @@ var AFRL = {
 		},
 
 		supplierCode: 'KL',
+		systemType: 'CO-OP',
 		accountStatus: 'Active',
 		financialResponsibility: 'Yes',
 		VATnumber: '12013291',
 		accountCreation: '1 November 2004',
 		contact: {
-		title: 'Dr',
-		forenames: 'Liam',
-		surnames: 'Betsworth',
+		title: 'Mr',
+		forenames: 'Jay',
+		surnames: 'Price',
 		id: '1201',
 		phoneNumber: '01792 698039',
-		emailAddress: 'liam.betsworth@honda.co.uk',
+		emailAddress: 'jay.price@honda.co.uk',
 		},
 		retailers: [
 		'9284'
@@ -67,9 +69,7 @@ var AFRL = {
 	retailers: [
 		{
 			name: 'FRF Motors',
-			manufacturer: 'honda',
 			id: '9284',
-			MVRIS: '123379',
 			accountType: 'Retailer',
 			address: {
 				line1: '10 Alexandra Rd',
@@ -99,7 +99,8 @@ var AFRL = {
 				securityQ2: '182901'
 			},
 			manufacturers: [
-				'928456'
+				'928456',
+                '192101'
 			],
 			users: [
 				'6543',

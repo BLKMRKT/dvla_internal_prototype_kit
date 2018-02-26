@@ -1,8 +1,8 @@
 
 {% block header_application_title %}
-<a href="/index" title="Service home">RaV Helpdesk</a>
+<a href="/index" title="Service home">Vehicles Helpdesk</a>
 {% endblock %}
-{% extends 'layout-fluid.html' %}
+{% extends 'layout-fixed.html' %}
 {% block head %} 
 {% include 'includes/head.html' %}
 {% endblock %}
@@ -29,38 +29,6 @@
 			<div class="list">
 				<div class="list-title-row">
 					<div class="list-title">
-						Individual Contact
-					</div>
-					<div class="list-change">
-						<a href="#">Change</a>
-					</div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Contact name</div>
-					<div class="list-data">
-<!--						<a href="#">-->
-							<span class="contact-name"></span>
-<!--						</a>-->
-					</div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Email</div>
-					<div class="list-data">
-						<a href="#">
-							<span class="contact-email"></span>
-						</a>
-					</div>
-				</div>
-				<div class="list-row">
-					<div class="list-property">Telephone</div>
-					<div class="list-data contact-phone"></div>
-				</div>
-
-			</div>
-			
-			<div class="list">
-				<div class="list-title-row">
-					<div class="list-title">
 						Retailer details
 					</div>
 					<div class="list-change">
@@ -73,7 +41,7 @@
 				</div>
 				<div class="list-row">
 					<div class="list-property">Retailer code</div>
-					<div class="list-data dealer-code"></div>
+					<div class="list-data retailer-code"></div>
 				</div>
 <!--
 				<div class="list-row">
@@ -100,24 +68,37 @@
 					<div class="list-data date-of-creation"></div>
 				</div>
 			</div>
-			
-<!--
+            
 			<div class="list">
 				<div class="list-title-row">
 					<div class="list-title">
-						Account status
+				Contact details
 					</div>
 					<div class="list-change">
 						<a href="#">Change</a>
 					</div>
 				</div>
 				<div class="list-row">
-					<div class="list-property">Status</div>
-					<div class="list-data"><span class="active-marker" id="manufacturer-status"></span></div>
+					<div class="list-property">Contact name</div>
+					<div class="list-data">
+<!--						<a href="#">-->
+							<span class="contact-name"></span>
+<!--						</a>-->
+					</div>
 				</div>
-
-			</div>
--->
+				<div class="list-row">
+					<div class="list-property">Email</div>
+					<div class="list-data">
+						<a href="#">
+							<span class="contact-email"></span>
+						</a>
+					</div>
+				</div>
+				<div class="list-row">
+					<div class="list-property">Telephone</div>
+					<div class="list-data contact-phone"></div>
+				</div>
+			</div>            
 		</div>
 		
 		
