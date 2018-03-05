@@ -18,9 +18,7 @@ var AFRL = {
 			accountStatus: 'Active',
 			accountCreation: '1 November 2004',
 			contact: {
-				title: 'Dr',
-				forenames: 'Liam',
-				surnames: 'Betsworth',
+				name: 'Liam Betsworth',
 				id: '1201',
 				phoneNumber: '01792 698039',
 				emailAddress: 'liam.betsworth@honda.co.uk',
@@ -30,43 +28,51 @@ var AFRL = {
 			],
 			users: [
 				'6543'
-			]
+			],
+            mvrismcris: [
+                '12345',                
+            ],
+            
 		}, // End of Jaguar Manufacturer
 		{
-		name: 'Landrover',
-		id: '192101',
-		accountType: 'Manufacturer',
-		address: {
-		line1: '10 North Rd',
-		line2: 'Llandaff',
-		line3: '',
-		city: 'Cardiff',
-		postCode: 'CF24 PLK'
-		},
+            name: 'Landrover',
+            id: '192101',
+            accountType: 'Manufacturer',
+            address: {
+                line1: '10 North Rd',
+                line2: 'Llandaff',
+                line3: '',
+                city: 'Cardiff',
+                postCode: 'CF24 PLK'
+            },
 
-		supplierCode: 'KL',
-		systemType: 'CO-OP',
-		accountStatus: 'Active',
-		financialResponsibility: 'Yes',
-		VATnumber: '12013291',
-		accountCreation: '1 November 2004',
-		contact: {
-		title: 'Mr',
-		forenames: 'Jay',
-		surnames: 'Price',
-		id: '1201',
-		phoneNumber: '01792 698039',
-		emailAddress: 'jay.price@honda.co.uk',
-		},
-		retailers: [
-		'9284'
-	],
-	users: [
-		'6543'
-	]
-	} // End of Bentley Manufacturer
+            supplierCode: 'KL',
+            systemType: 'CO-OP',
+            accountStatus: 'Active',
+            financialResponsibility: 'Yes',
+            VATnumber: '12013291',
+            accountCreation: '1 November 2004',
+            contact: {
+                name: 'Jay Price',
+                id: '1201',
+                phoneNumber: '01792 698039',
+                emailAddress: 'jay.price@honda.co.uk',
+            },
+            retailers: [
+            '9284'
+            ],
+            users: [
+                '6543'
+            ],
+            mvrismcris: [
+                '12345',                
+                '23456'               
+            ],           
+            
+	   } // End of Bentley Manufacturer
 	], // End of Manufacturers
-	retailers: [
+	
+    retailers: [
 		{
 			name: 'FRF Motors',
 			id: '9284',
@@ -81,14 +87,14 @@ var AFRL = {
 			phoneNumber: '02920 698039',
 			emailAddress: 'honda.whitchurch@honda.co.uk',
 			retailerCode: 'B189',
+            systemType: 'CO-OP',
 			accountStatus: 'Active',
 			financialResponsibility: 'Yes',
+			companiesHouseID: '123456789',
 			VATnumber: '12013291',
 			accountCreation: '1st November 2004',
 			contact: {
-				title: 'Mr',
-				forenames: 'Bobby',
-				surnames: 'Singh',
+				name: 'Bobby Singh',
 				id: '1207',
 				accountType: 'Staff',
 				phoneNumber: '01792 698039',
@@ -101,7 +107,7 @@ var AFRL = {
 			manufacturers: [
 				'928456',
                 '192101'
-			],
+            ],
 			users: [
 				'6543',
 				'26543'

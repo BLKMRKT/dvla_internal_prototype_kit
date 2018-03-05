@@ -55,37 +55,25 @@
 	function validate() {
 		var valid = true;
 		
-		$('#retailer-name-container, #MVRIS-code-container').removeClass('error');
+		$('#retailer-name-container').removeClass('error');
 		$('.legend-error').hide();
 		
 		var accountType = $('input[name=account-type]:checked').val();
-//		var systemType = $('input[name=system-type]:checked').val();
 
 		if (accountType === undefined) {
 			$('#account-type-container').addClass('error');
 			$('#account-type-container .legend-error').show();
 			valid = false;
-		}
-		
-//		if (systemType === undefined) {
-//			$('#system-type-container').addClass('error');
-//			$('#system-type-container .legend-error').show();
-//			valid = false;
-//		} 
+		};
 		
 		if ((accountType === 'Retailer') && (valid)) {
-			member.questions.accountType = accountType;
-//			member.questions.systemType = systemType;
 			go('/account-creation/retailer-creation');
-		}
+		};
 		
 		if ((accountType === 'Manufacturer') && (valid)) {
-			member.questions.accountType = accountType;
-//			member.questions.systemType = systemType;
 			go('/account-creation/manufacturer-creation');
 		}
-
-	}
+	};
 
 </script>
 {% endblock %}

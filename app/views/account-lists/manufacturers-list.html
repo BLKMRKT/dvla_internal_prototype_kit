@@ -27,8 +27,8 @@
 			</ul>
 			
 			<table class="margin-top-2">
-				<thead class="tableHead tableHead-manufacturers-list">
-					<th>Manufacturer's (2)</th>
+				<thead class="tableHead tableHead-manufacturers">
+					<th>Manufacturers (<span id="count">2</span>)</th>
 					<th>Supplier Code</th>
 					<th>Address</th>
 					<th>Contact</th>
@@ -44,52 +44,21 @@
 <script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 <script>
 		
-		var manufacturers = AFRL.manufacturers;
-		
-		
-		
-		var table = '';
+    var manufacturers = AFRL.manufacturers;		
+    var table = '';
 
-		for (var i = 0; i < manufacturers.length; i++) {
-			table += '<tr>';
-			
-			table += '<td class="bold"><a class="manufacturers-link" " href="/manufacturer/details?recordtype=manufacturer&recordid='+ manufacturers[i].id +'">' + manufacturers[i].name + '</a></td>';
-			
-			table += '<td>' + manufacturers[i].supplierCode + '</td>';
+    for (var i = 0; i < manufacturers.length; i++) {
+        table += '<tr>';
+        table += '<td class="bold"><a class="manufacturers-link" " href="/manufacturer/details?recordtype=manufacturer&recordid='+ manufacturers[i].id +'">' + manufacturers[i].name + '</a></td>';			
+        table += '<td>' + manufacturers[i].supplierCode + '</td>';
+        table += '<td><div class="truncate">' + manufacturers[i].address.line1 + ', ' + manufacturers[i].address.line2 + ', ' +  manufacturers[i].address.line3 + manufacturers[i].address.postCode + '</div></td>';
+        table += '<td><a href="">' + manufacturers[i].contact.name + '</a></td>';
+        table += '</tr>';
+    }
 
-			table += '<td><div class="truncate">' + manufacturers[i].address.line1 + ', ' + manufacturers[i].address.line2 + ', ' +  manufacturers[i].address.line3 + manufacturers[i].address.postCode + '</div></td>';
-			
-			table += '<td><a href="">' + manufacturers[i].contact.forenames + ' ' + manufacturers[i].contact.surnames + '</a></td>';
-			
-			table += '</tr>';
-		}
-
-		$('#tableBody').html(table);
-												 
-//		function navigate() {
-//			var value = manufacturers[i].name ;
-//			member.manufacturer = value;
-//			
-//		}
-									 
+    $('#tableBody').html(table);
+    $('#count').html(manufacturers.length);								
 		
-		// Manufacturers total count
-		
-		// $('input[name=vehicle]').change(function() {
-		//     var total = 0;
-		//     $('#question input:checked').each(function(i,e) {
-		//         ++total;
-		//     });
-		//     $('#selected-vehicles').html(total);
+</script>
 
-		//     if (total === 1) {
-		//         $('#selected-vehicles-plural').html('vehicle selected');
-		//     } else {
-		//         $('#selected-vehicles-plural').html('vehicles selected');
-		//     }
-		// });
-		
-	</script>
-
-
-	{% endblock %}
+{% endblock %}

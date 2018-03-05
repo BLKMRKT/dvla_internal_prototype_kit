@@ -1,0 +1,50 @@
+<hr class="margin-top-6 margin-bottom-6">
+
+<div class="margin-bottom-3 relative" id="contact-name">
+    <label for="contact-name-input">
+        <div class="label-title medium-font">Manufacturer code</div>
+        
+        <a href="#" class="remove-manufacturer">Remove manaufacturer</a>
+        
+        <div class="label-error">Enter a code</div>
+        <input type="text" class="form-control form-control-1-4 margin-bottom-2 manufacturer-code" autofocus/>
+    </label>
+</div>
+<div class="margin-bottom-3" id="contact-name">
+    <label for="contact-name-input">
+        <div class="label-title medium-font">MVRIS/MCRIS</div>
+        <div class="label-error">Enter a code</div>
+    </label>
+    <div class="input-group input-group-mvris-mcris">
+        <input type="text" class="form-control margin-bottom-2"/>
+        <span class="input-group-btn">
+            <button class="add-mvris-mcris btn btn-primary" type="button">+ Add</button>
+        </span>
+    </div>
+    <tag-holder class="block margin-top-1"></tag-holder>
+</div>
+
+<script type="text/javascript">
+
+    $('.add-mvris-mcris').click(function(){
+        var input = $(this).parent().prev().val();
+        if (input) {
+            var tag = "<span class='interactive-tag-blue' onclick='removefunction(this, this.innerText)'>" + input + "</span>";
+            $(this).closest('.input-group').next('tag-holder').prepend(tag);
+            $(this).parent().prev().val("");
+            
+        } else {
+            alert ("field can't be blank");
+        }
+    });
+    
+    function removefunction(element, content) {
+        element.remove();
+    };
+    
+    $('.remove-manufacturer').click(function(e){
+        e.preventDefault();
+        $(this).closest('.man-mvris-block').remove();
+    });
+    
+</script>

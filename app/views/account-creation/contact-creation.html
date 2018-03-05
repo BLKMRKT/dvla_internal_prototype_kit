@@ -13,7 +13,7 @@
 {% block content %}
 
 <div class="row"> 
-	<div class="col-7 margin-top-3">
+	<div class="col-6 margin-top-3">
 
 		{% include 'includes/buttons/back.html' %} 
 
@@ -64,57 +64,30 @@
 		validate();
 	});
 	
-	$('#creation-account-type').html(member.questions.accountType);
+	function validate() {    
+        
+        if (!member.records) { member.records = [] };
+        if (member.retailer) {
+            member.retailer.contact = {};
+            member.retailer.contact.name = $('#contact-name-input').val();
+            member.retailer.contact.emailAddress = $('#contact-email-input').val();
+            member.retailer.contact.phoneNumber = $('#contact-phone-input').val();
+            member.records.push(member.retailer);
+        };
+        
+        if (member.manufacturer) {
+            member.manufacturer.contact = {};
+            member.manufacturer.contact.name = $('#contact-name-input').val();
+            member.manufacturer.contact.emailAddress = $('#contact-email-input').val();
+            member.manufacturer.contact.phoneNumber = $('#contact-phone-input').val();
+            member.records.push(member.manufacturer);
+        };
+        
+        var position = (member.records.length - 1);
 
-	function validate() {
-		var valid = true;
-		var accountCreation = true;
-		
-		$('#contact-name, #contact-email, #contact-phone').removeClass('error');
-		$('.label-error').hide();
-		
-		var contactName = $('#contact-name-input').val();
-		var contactEmail = $('#contact-email-input').val();
-		var contactPhone = $('#contact-phone-input').val();
+        go('/retailer/details?recordtype=member&recordid=' + position + '&accountcreation=true');
+    };
 
-		if (contactName === '') {
-			$('#contact-name').addClass('error');
-			$('#contact-name .label-error').show();
-			valid = false;
-			} 
-		
-		if (contactEmail === '') {
-			$('#contact-email').addClass('error');
-			$('#contact-email .label-error').show();
-			valid = false;
-			}
-		
-		if (contactPhone === '') {
-			$('#contact-phone').addClass('error');
-			$('#contact-phone .label-error').show();
-			valid = false;
-			}
-		
-		if (valid) {
-			var dateOfCreation = moment().format('D MMMM YYYY');
-			if (member.questions.accountType == 'Manufacturer') {
-				member.questions.contactName = contactName;
-				member.questions.contactEmail = contactEmail;
-				member.questions.contactPhone = contactPhone;
-				member.questions.dateOfCreation = dateOfCreation;
-				go('/account-creation/manufacturer-details?accountcreation=true');
-				} 
-
-			if (member.questions.accountType == 'Retailer') {
-				member.questions.contactName = contactName;
-				member.questions.contactEmail = contactEmail;
-				member.questions.contactPhone = contactPhone;
-				member.questions.dateOfCreation = dateOfCreation;
-				go('/account-creation/retailer-details?accountcreation=true');
-				}
-			}
-		
-		}
 
 
 
