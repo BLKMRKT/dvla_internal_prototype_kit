@@ -18,7 +18,7 @@
     <div class="input-group input-group-mvris-mcris">
         <input type="text" class="form-control margin-bottom-2"/>
         <span class="input-group-btn">
-            <button class="add-mvris-mcris btn btn-primary" type="button">+ Add</button>
+            <button class="new add-mvris-mcris btn btn-primary" type="button">+ Add</button>
         </span>
     </div>
     <tag-holder class="block margin-top-1"></tag-holder>
@@ -26,6 +26,17 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function(){
+        var positionCounter = 0
+        $('.remove-manufacturer').each(function (index) {
+            $(this).attr('position', index + 1);
+            $(this).nextAll('.manufacturer-code').attr('position', index + 1);
+            positionCounter++;
+        });
+        $('.add-mvris-mcris.new').attr('position', positionCounter ).removeClass('new');
+    });
+
+    
     $('.add-mvris-mcris').click(function(){
         var input = $(this).parent().prev().val();
         if (input) {
@@ -44,7 +55,9 @@
     
     $('.remove-manufacturer').click(function(e){
         e.preventDefault();
-        $(this).closest('.man-mvris-block').remove();
+        var blockID = $(this).closest('.manufacturer-code').attr('position').val();
+        console.log(blockID);
+//        $(this).closest('.man-mvris-block').remove();
     });
     
 </script>
