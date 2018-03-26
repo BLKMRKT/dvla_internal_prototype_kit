@@ -104,10 +104,10 @@
 			<span>Total:</span>
 		</div>
 		<div class="accordion margin-top-1 margin-bottom-0">
-			<div class="accordion-section opened">
+			<div class="accordion-section opened open">
 				
 				
-				<button class="accordion-header margin-bottom-0" style="margin-bottom: 0px;">
+				<button class="accordion-header margin-bottom-0">
 					<div class="data-enquiry-name">
                         <div class="accordion-icon"></div>
                         <span class="accordion-manufacturer-title">Jaguar (JK)</span>
@@ -172,17 +172,7 @@
 </div>
 
 <script>
-	$('.accordion-header').click(function () {
-		var parent = $(this).parent();
 
-		if (parent.hasClass('opened')) {
-			parent.removeClass('opened');
-			parent.addClass('closed');
-		} else {
-			parent.removeClass('closed');
-			parent.addClass('opened');
-		}
-	});
 </script>
 
 	{% endblock %}

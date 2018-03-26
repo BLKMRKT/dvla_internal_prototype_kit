@@ -1,0 +1,93 @@
+{% block header_application_title %}
+<a href="/index" title="Service home">Vehicles Helpdesk</a>
+{% endblock %}
+{% extends 'layout-fixed.html' %}
+{% block head %} 
+{% include 'includes/head.html' %}
+{% endblock %}
+{% block content %}
+<div class="row">
+
+	{% include 'includes/retailer-header.html' %} 
+
+	<div class="col-12">
+		<ul class="tabs">
+			<ul class="tabs">
+<!--
+				<li class="tab"><a href="/retailer/users.html">Retailers staff</a></li>
+				<li class="tab"><a href="/retailer/data/summary.html">Data</a></li>
+-->
+				<li class="tab"><a href="/retailer/details.html">Details</a></li>
+				<li class="tab active"><a href="/retailer/pools.html">Pools</a></li>
+			</ul>
+		</ul>
+	</div> <!-- end .col-12 -->
+	
+	<div class="col-12 margin-top-4 margin-bottom-2">
+        <h2 class="heading-small inline-block margin-0">Retailer Pools</h2>
+        
+        <button class=" btn-add btn btn-lrg btn-secondary float-right margin-left-2">
+            <span class="add-btn"></span>
+            Add a new retailer pool
+        </button>
+        
+        <div class="form-group inline-block margin-bottom-0 float-right">
+            <div class="inline-label">Search for VRN</div>
+            <div class="input-group auto-width float-right">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-search" type="button"></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+	
+    <div class="col-12">
+		
+        <table>
+            <thead>
+                <th class="percent30">Name</th>
+                <th>VRN Series</th>
+                <th>Region code</th>
+                <th>Max Pool size</th>
+                <th class="percent12">Top-up threshold</th>
+                <th></th>
+            </thead>
+            <tbody id="tableBody">                
+            </tbody>
+        </table>
+		
+	</div> <!-- end .col-12 -->
+
+
+</div> <!-- end .row -->
+
+<script type="text/javascript" src="/public/javascripts/accounts.js"></script>
+
+<script>
+
+    var pools = getRetailerPools(member.currentRecord);
+    console.log(pools);
+    var table = '';
+
+    for (var i = 0; i < pools.length; i++) {
+        table += '<tr>';
+        table += '<td><a href="#">Pool ' + pools[i].id + ' (view numbers)</a></td>';
+        table += '<td>' + pools[i].vrnSeries + '</td>';
+        table += '<td>' + pools[i].regionCode + '</td>';
+        table += '<td>' + pools[i].maxpoolSize + '</td>';
+        table += '<td>' + pools[i].topupThreshold + '<span class="margin-left-2 float-right tag-basic blue"><a href="#">Top-up</a></span></td>';
+        table += '<td><a class="red margin-right-3 margin-left-3 float-right" href="#">Delete</a><a class="float-right" href="#">Edit</a></td>';
+        table += '</tr>';
+    };
+
+
+    $('#tableBody').html(table);
+
+    
+</script>
+
+
+
+{% endblock %}

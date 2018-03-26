@@ -18,7 +18,9 @@
 				<li class="tab"><a href="/retailer/users.html">Retailers staff</a></li>
 				<li class="tab"><a href="/retailer/data/summary.html">Data</a></li>
 -->
-				<li class="tab active"><a href="/retailers/details.html">Details</a></li>
+				<li class="tab active"><a href="/retailer/details.html">Details</a></li>
+                <li class="tab"><a href="/retailer/pools.html">Pools</a></li>
+
 			</ul>
 		</ul>
 	</div> <!-- end .col-12 -->
@@ -109,22 +111,12 @@
 			<div class="margin-top-0 heading-small">Manufacturers</div>
 			<div class="heading-grey">MVRIS/MCRIS</div>
 
-			<div class="mvris-list margin-top-2">
-				<div class="mvris-list-item">
-					<div class="mvris-number-aside">121929</div>
-					<a class="mvris-manufacturer-side" href="#">Jaguar (BP)</a>
-				</div>
+            <div class="mvris-list margin-top-2">
+                <div id="manufacturerCodes">    
 
-				<div class="mvris-list-item margin-top-1">
-					<div class="mvris-number-aside">999201</div>
-					<a class="mvris-manufacturer-side" href="#">Honda (KL)</a>
-				</div>	
-
-				<div class="mvris-list-item margin-top-1">
-					<div class="mvris-number-aside">121929</div>
-					<a class="mvris-manufacturer-side" href="#">Suzuki (LQ)</a>
-				</div> 
-			</div>
+                </div>
+            </div>
+            
 		</aside>
 	</div>
 
@@ -132,4 +124,32 @@
 
 <script type="text/javascript" src="/public/javascripts/accounts.js"></script>
 
-	{% endblock %}
+<script>
+
+    var list = '';    
+    console.log(array);
+    
+    for (i=0; i < array.length; i++) {
+        var manufacturer = ''
+        if (i == 0) {
+            manufacturer += '<div class="mvris-list-item"><a class="mvris-manufacturer-number" href="#">' + array[i].manufacturer + '</a>';
+            manufacturer += array[i].mvrismcris;
+        } else {
+            if (array[i].manufacturer == array[i-1].manufacturer) {
+                manufacturer += ', ' + array[i].mvrismcris;
+            } else {
+                manufacturer += '</div><div class="mvris-list-item margin-top-2"><a class="mvris-manufacturer-number" href="#">' + array[i].manufacturer + '</a>';
+                manufacturer += array[i].mvrismcris;
+            };
+        };
+        list += manufacturer;
+    };
+    
+    $('#manufacturerCodes').append(list);
+
+    
+</script>
+
+
+
+{% endblock %}

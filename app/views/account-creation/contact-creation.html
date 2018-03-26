@@ -8,8 +8,6 @@
 {% block header_bar %}
 {% endblock %}
 
-
-
 {% block content %}
 
 <div class="row"> 
@@ -60,11 +58,28 @@
 
 
 <script type="text/javascript">
+    
+    var list = '';
+    var array = member.retailer.manufacturers;
+    for (i=0; i < array.length; i++) {
+        if (i == 0) {
+            list += 'manufacturer: ' + array[i].manufacturer + ', mvrismcris: ' + array[i].mvrismcris + ', ';
+        } else {
+            if (array[i].manufacturer == array[i-1].manufacturer) {
+                list += '' + array[i].mvrismcris + ', ';
+            } else {
+                list += '; manufacturer: ' + array[i].manufacturer + ', mvrismcris: ' + array[i].mvrismcris + ', ';
+            }
+        };
+    };
+    alert(list);
+        
+    
 	$(".btn").click(function(){
 		validate();
 	});
 	
-	function validate() {    
+	function validate() {
         
         if (!member.records) { member.records = [] };
         if (member.retailer) {

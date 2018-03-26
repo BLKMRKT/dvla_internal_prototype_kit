@@ -13,3 +13,17 @@ function getQueryVariable(variable) {
                }
        } return(false);
 };
+
+$(document).ready(function(){
+    $('.accordion-header').click(function () {
+        var parent = $(this).parent();
+
+        if (parent.hasClass('open')) {
+            parent.removeClass('open');
+            parent.find('.accordion-content').slideUp(200);
+        } else {
+            parent.addClass('open');
+            parent.find('.accordion-content').slideDown(200);
+        }
+    });
+});

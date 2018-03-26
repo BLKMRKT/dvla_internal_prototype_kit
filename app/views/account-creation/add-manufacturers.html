@@ -15,6 +15,7 @@
 
 		{% include 'includes/buttons/back.html' %} 
 
+
 		<form class="margin-top-5 margin-bottom-0">
 			<div id="add-manufacturers" class="form-group">
 				
@@ -23,22 +24,16 @@
 				
 				<h2 class="heading-small border-bottom-grey margin-top-1">Associate with a manufacturer</h2>
 
-				<div class="margin-bottom-3 relative" id="contact-name">
-					<label for="contact-name-input">
+				<div class="margin-bottom-3 relative manufacturerCode">
 						<div class="label-title medium-font">Manufacturer code</div>
-						<div class="label-error">Enter a code</div>
-						<input type="text" class="form-control form-control-1-4 margin-bottom-2 manufacturer-code" position='0'/>
-					</label>
+						<input type="text" class="form-control form-control-1-4 margin-bottom-2 manufacturer-code"/>
 				</div>
-                <div class="margin-bottom-3" id="contact-name">
-					<label for="contact-name-input">
+                <div class="margin-bottom-3 mvrisCode">
 						<div class="label-title medium-font">MVRIS/MCRIS</div>
-						<div class="label-error">Enter a code</div>
-                    </label>
                     <div class="input-group input-group-mvris-mcris">
                         <input type="text" class="form-control margin-bottom-2 mvris"/>
                         <span class="input-group-btn">
-                            <button class="add-mvris-mcris btn btn-primary" type="button" position='0'>+ Add</button>
+                            <button class="add-mvris-mcris btn btn-primary" type="button">+ Add</button>
                         </span>
                     </div>
                     <tag-holder class="block margin-top-1"></tag-holder>
@@ -58,21 +53,25 @@
 
 <script type="text/javascript">
     
-    var mvrisArray = [];
-        
+//    var validInput = false;
+    
     // Add tag when clicking 'add' button against mvris/mcris input. We target the button clicked, find the parent, use that to find the previous input and then get the value of that input. If empty we error. If valid, we create a span for the input mvris/mcris. By using the button clicked, we find the closest input-group, traverse the elements until we find the tag-holder and the prepend that with the span we created.  
     $('.add-mvris-mcris').click(function(){
+        
         var manInput = $(this).closest('.manufacturer-code').val();
         var input = $(this).parent().prev('.mvris').val();
-        console.log(input);
+
         if ((input == '') || (manInput == '')) {
             alert ("field can't be blank");
+            validInput = false;
         } else {
             var tag = "<span class='interactive-tag-blue' onclick='removefunction(this, this.innerText)'>" + input + "</span>";
             $(this).closest('.input-group').next('tag-holder').prepend(tag);
             $(this).parent().prev().val("");
+//            $(this).parents('.mvrisCode').prev('.error').removeClass('error');
+//            validInput = true;
             
-        };
+        }
     });
     
     // This removes the element clicked on from the DOM and array
@@ -94,21 +93,30 @@
           
 
     // What to do when we click continue
-//    $('#continue').click(function(){;
-//    
-//        var map = [];
-//        $(".manufacturer-code").each(function() {
-//            map.push($(this).val());
-//        });
-//        
-//        if (!member.retailer) { member.retailer = {} };        
-//        if (!member.retailer.manufacturers) { member.retailer.manufacturers = [] };
-//        
-//        member.retailer.manufacturers = map;
-//        console.log (member.retailer.manufacturers);
-//        go('/account-creation/contact-creation');
-//                                   
-//    });
+    $('#continue').click(function(){
+    
+        $('.manufacturer-code').each(function() {
+//            if ($(this).val() == ''){
+//                $(this).parent().addClass('error');
+//                validInput = false;
+//            }
+        });
+                                     
+        var map = [];
+        $(".interactive-tag-blue").each(function() {
+            var manufacturer = $(this).parents('.mvrisCode').prev('.manufacturerCode').find('.manufacturer-code').val();
+            item = { manufacturer: manufacturer, mvrismcris: $(this).text() };
+            map.push(item);
+        });
+
+        if (!member.retailer) { member.retailer = {} };        
+        if (!member.retailer.manufacturers) { member.retailer.manufacturers = [] };
+
+        member.retailer.manufacturers = map;
+        console.log (member.retailer.manufacturers);
+        go('/account-creation/contact-creation');
+                                   
+    });
     
 </script>
 {% endblock %}

@@ -105,13 +105,21 @@ var AFRL = {
 				securityQ2: '182901'
 			},
 			manufacturers: [
-				'928456',
-                '192101'
+				{
+                    manufacturer: 'Jaguar (BP)',
+                    mvrismcris: '12345'
+                }
             ],
 			users: [
 				'6543',
 				'26543'
-			]
+			],
+            pools: [
+                'A',
+                'B',
+                'C',
+                'D'
+            ]
 		}
 	],
 	users: [
@@ -124,6 +132,36 @@ var AFRL = {
 			id: '26543',
 			name: 'Liam Price',
 			phoneNumber: '01792 832257'
+		}
+	],
+    pools: [
+		{
+			id: 'A',
+			vrnSeries: '17',
+			regionCode: '001',
+			maxpoolSize: '100',
+			topupThreshold: '100'
+        },
+        {
+			id: 'B',
+			vrnSeries: '17',
+			regionCode: '001',
+			maxpoolSize: '100',
+			topupThreshold: '100'
+        },
+        {
+			id: 'C',
+			vrnSeries: '17',
+			regionCode: '002',
+			maxpoolSize: '50',
+			topupThreshold: '50'
+        },
+        {
+			id: 'D',
+			vrnSeries: '17',
+			regionCode: '002',
+			maxpoolSize: '50',
+			topupThreshold: '50'
 		}
 	]
 };
@@ -156,10 +194,26 @@ function getRetailer(retailerID) {
 	}
 }
 
+// Get pool by ID
+function getPool(poolID) {
+	for (var i = 0; i < AFRL.pools.length; i++) {
+		if (AFRL.pools[i].id == poolID) {
+			return AFRL.pools[i];
+		}
+	}
+}
+
 // Get users of a manufacturer
 function getManufacturerUsers(manufacturer) {
 	return manufacturer.users.map(function(userID) {
 		return getUser(userID);
+	});
+}
+
+// Get pools of a retailer
+function getRetailerPools(retailer) {
+	return retailer.pools.map(function(poolID) {
+		return getPool(poolID);
 	});
 }
 

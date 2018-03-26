@@ -16,7 +16,7 @@
 		{% include 'includes/buttons/back.html' %} 
 		
 		<form>
-			<div class="form-group margin-top-5 margin-bottom-0" id="account-type">
+			<div class="form-group margin-top-5" id="account-type">
 				<div class="heading-extra-small section-label margin-bottom-0 margin-top-0">Account Creation</div>
 				<legend class="heading-large border-bottom-grey margin-top-0">
 					<h1 class="heading-large margin-top-0">Create a new retailer</h1>
@@ -91,25 +91,25 @@
 					</div>
 					
 				</div>
-			</div>
 			
-			<div id="system-type" class="form-group inline">
-				<fieldset>
-					<legend class="medium-font">
-						What type of account do you want to create?
-						<span class="legend-error">Select an option</span>
-					</legend>
+                <div id="system-type" class="form-group inline">
+                    <fieldset>
+                        <legend class="medium-font">
+                            What type of account do you want to create?
+                            <span class="legend-error">Select an option</span>
+                        </legend>
 
-					<div class="multiple-choice">
-						<input id="co-op-system" type="radio" name="system-type" value="co-op">
-						<label for="co-op-system" class="medium-font">Co-op</label>
-					</div>
-					<div class="multiple-choice">
-						<input id="web-system" type="radio" name="system-type" value="web">
-						<label for="web-system" class="medium-font">Web</label>
-					</div>
-				</fieldset>
-			</div>
+                        <div class="multiple-choice">
+                            <input id="co-op-system" type="radio" name="system-type" value="co-op">
+                            <label for="co-op-system" class="medium-font">Co-op</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="web-system" type="radio" name="system-type" value="web">
+                            <label for="web-system" class="medium-font">Web</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
 			{% include 'includes/buttons/continue.html' %} 
 		</form>
 

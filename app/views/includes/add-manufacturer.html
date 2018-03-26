@@ -1,20 +1,12 @@
 <hr class="margin-top-6 margin-bottom-6">
 
-<div class="margin-bottom-3 relative" id="contact-name">
-    <label for="contact-name-input">
+<div class="margin-bottom-3 relative manufacturerCode">
         <div class="label-title medium-font">Manufacturer code</div>
-        
         <a href="#" class="remove-manufacturer">Remove manaufacturer</a>
-        
-        <div class="label-error">Enter a code</div>
         <input type="text" class="form-control form-control-1-4 margin-bottom-2 manufacturer-code" autofocus/>
-    </label>
 </div>
-<div class="margin-bottom-3" id="contact-name">
-    <label for="contact-name-input">
+<div class="margin-bottom-3 mvrisCode">
         <div class="label-title medium-font">MVRIS/MCRIS</div>
-        <div class="label-error">Enter a code</div>
-    </label>
     <div class="input-group input-group-mvris-mcris">
         <input type="text" class="form-control margin-bottom-2"/>
         <span class="input-group-btn">
@@ -25,17 +17,6 @@
 </div>
 
 <script type="text/javascript">
-
-    $(document).ready(function(){
-        var positionCounter = 0
-        $('.remove-manufacturer').each(function (index) {
-            $(this).attr('position', index + 1);
-            $(this).nextAll('.manufacturer-code').attr('position', index + 1);
-            positionCounter++;
-        });
-        $('.add-mvris-mcris.new').attr('position', positionCounter ).removeClass('new');
-    });
-
     
     $('.add-mvris-mcris').click(function(){
         var input = $(this).parent().prev().val();
@@ -55,9 +36,7 @@
     
     $('.remove-manufacturer').click(function(e){
         e.preventDefault();
-        var blockID = $(this).closest('.manufacturer-code').attr('position').val();
-        console.log(blockID);
-//        $(this).closest('.man-mvris-block').remove();
+        $(this).closest('.man-mvris-block').remove();
     });
     
 </script>
